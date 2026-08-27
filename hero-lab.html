@@ -1999,9 +1999,18 @@ if(hx){r.classList.add('hierx');r.classList.add('h'+hx+'x');
     var wrap=document.createElement('div'); wrap.className='i5-icons';
     rows.forEach(function(x){wrap.appendChild(x);});
     var ch=document.querySelector('.i5-chips');
+    var subs=['Built into every live session','9 AM EDT \u00b7 2 PM BST \u00b7 10 PM JST','Your sessions, on your schedule'];
+    function addSubs(){rows.forEach(function(x,i){var m=x.querySelector('.i5-mid');
+      if(m&&!m.querySelector('.i5-sub')){var sp=document.createElement('span');sp.className='i5-sub';sp.textContent=subs[i];m.appendChild(sp);}});}
+    function langsBlock(){var w=document.createElement('div');w.className='i5-langs';
+      var l=document.createElement('div');l.className='i5-ll';l.textContent='Dubbed recordings \u00b7 on request';
+      w.appendChild(l);w.appendChild(ch);return w;}
     if(hx==='1'){document.querySelector('.i5-left').appendChild(ch); right.appendChild(wrap);}
     if(hx==='2'){var g=document.querySelector('.i5-grid'); g.appendChild(ch); g.appendChild(wrap); right.remove();}
     if(hx==='3'){right.appendChild(ch); right.appendChild(wrap);}
+    if(hx==='4'||hx==='5'){addSubs(); right.appendChild(langsBlock()); right.appendChild(wrap);}
+    if(hx==='6'){addSubs(); var lb=langsBlock(); lb.querySelector('.i5-ll').style.marginTop='16px';
+      document.querySelector('.i5-left').appendChild(lb); right.appendChild(wrap);}
     var h=document.querySelector('.i5-left h2');
     if(h)h.innerHTML='Join live from <em class="gw">anywhere.</em><br>Watch back in <em class="gw">your language.</em>';
   });}
@@ -2570,6 +2579,42 @@ html,body{max-width:100%;overflow-x:hidden}
 .h2x .i5-icons .i5-mid i{display:none}
 .h2x .i5-ic{flex-basis:32px;width:32px;height:32px}.h2x .i5-ic svg{width:19px;height:19px}
 .h2x .i5-icons .i5-mid b{font-size:14px;color:#c6ccd9}
+/* shared: descriptive sub-lines + dubbed-recordings label + column icons */
+.i5-sub{display:block;font-size:12.5px;font-weight:400;color:#8b93a6;margin-top:2px}
+.i5-ll{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#3ED8F0;margin-bottom:9px}
+/* h4: refined 14c — langs (labeled) then borderless items w/ subs */
+.h4x .i5-right{flex-direction:column;align-items:flex-start;gap:18px}
+.h4x .i5-chips{gap:15px}
+.h4x .i5-chips .chip{font-size:14px}
+.h4x .i5-ic{border:0;background:none;flex-basis:auto;width:auto;height:auto;border-radius:0}
+.h4x .i5-ic svg{width:30px;height:30px}
+.h4x .i5-icons{gap:34px;align-items:flex-start}
+.h4x .i5-icons .i5-mid i{display:none}
+/* h5: screenshot rail-tile style — boxed icons, subs, vertical dividers */
+.h5x .i5-right{flex-direction:column;align-items:flex-start;gap:18px}
+.h5x .i5-chips{gap:15px}
+.h5x .i5-chips .chip{font-size:14px}
+.h5x .i5-icons{gap:0;align-items:center}
+.h5x .i5-icons .i5-row{padding:2px 26px;position:relative}
+.h5x .i5-icons .i5-row:first-child{padding-left:0}
+.h5x .i5-icons .i5-row:not(:first-child)::before{content:"";position:absolute;left:0;top:50%;
+  transform:translateY(-50%);width:1px;height:38px;background:rgba(255,255,255,.16)}
+.h5x .i5-ic{flex-basis:44px;width:44px;height:44px;border-radius:12px}
+.h5x .i5-ic svg{width:25px;height:25px}
+.h5x .i5-icons .i5-mid i{display:none}
+.h5x .i5-icons .i5-mid b{font-size:15.5px}
+/* h6: refined 14a — white header, langs left, three centered columns right */
+.h6x .i5-left h2 .gw{background:none!important;-webkit-background-clip:border-box!important;color:#F2F4FA!important}
+.h6x .i5-chips{margin:15px 0 0;gap:14px;justify-content:flex-start}
+.h6x .i5-grid{align-items:center;gap:40px}
+.h6x .i5-icons{gap:30px;align-items:flex-start}
+.h6x .i5-icons .i5-row{flex-direction:column;align-items:center;text-align:center;gap:9px}
+.h6x .i5-icons .i5-mid{align-items:center;text-align:center}
+.h6x .i5-icons .i5-mid i{display:none}
+.h6x .i5-icons .i5-mid b{font-size:14px;white-space:normal;max-width:15ch}
+.h6x .i5-sub{font-size:12px;max-width:19ch}
+.h6x .i5-ic{border:0;background:none;flex-basis:auto;width:auto;height:auto}
+.h6x .i5-ic svg{width:30px;height:30px}
 /* T3: right column stacks languages (big) over features (quiet) */
 .h3x .i5-right{flex-direction:column;align-items:flex-start;gap:14px}
 .h3x .i5-chips{gap:15px;order:-1}
