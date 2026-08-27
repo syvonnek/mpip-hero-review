@@ -1982,6 +1982,11 @@ if(p.get('pr')==='1')r.classList.add('pr-on');
 if(p.get('price')==='1')r.classList.add('price-on');
 if(p.get('rule')==='0')r.classList.add('rule-off');
 var cds=p.get('cards'); if(cds)r.classList.add('cards'+cds);
+var cb2=p.get('cbar'); if(cb2)r.classList.add('cbar-'+cb2);
+if(p.get('copy')==='b'){document.addEventListener('DOMContentLoaded',function(){
+  var h=document.querySelector('.wa-h'); if(h)h.innerHTML='<span class="lt">Two days of practical</span> <span class="bd">Premiere Training</span>';
+  var pp=document.querySelector('#why-attend .wa-copy p'); if(pp)pp.innerHTML='Learn straight from the Adobe Team and Community Experts.';
+});}
 var it=p.get('intl'); if(it)r.classList.add('intl'+it);
 var ri=p.get('ritem'); if(ri==='lang')r.classList.add('rail4L');
 if(p.get('hdr')==='w')r.classList.add('hdrw');
@@ -2249,6 +2254,18 @@ html,body{max-width:100%;overflow-x:hidden}
   background:radial-gradient(70% 62% at 50% 42%,color-mix(in srgb,var(--ct) 10%,transparent),transparent 74%);
   filter:blur(14px)}
 .cards5 #why-attend .wa-card>*{position:relative;z-index:1}
+.cards5 #why-attend .wa-card{padding-top:0;
+  border:1px solid color-mix(in srgb,var(--ct) 16%,rgba(255,255,255,.10))}
+.cards5 #why-attend .wa-chip{margin:0 -34px 24px;padding:15px 34px;width:calc(100% + 68px);
+  background:color-mix(in srgb,var(--ct) 6%,transparent);
+  border-bottom:1px solid color-mix(in srgb,var(--ct) 15%,transparent)}
+.cards5 #why-attend .wa-chip,.cards5 #why-attend .wa-chip b,.cards5 #why-attend .wa-chip i{font-size:17px}
+@media(max-width:900px){.wa-br{display:none}}
+/* Explore the Program: cyan ghost pill */
+#why-attend .wa-link{display:inline-flex;align-items:center;gap:9px;padding:12px 28px;
+  border:1px solid rgba(62,216,240,.55);border-radius:999px;background:rgba(62,216,240,.05);
+  color:#3ED8F0;font-weight:650}
+#why-attend .wa-link:hover{color:#7DE9FF;border-color:rgba(62,216,240,.85);background:rgba(62,216,240,.1)}
 #why-attend .wa-card p{max-width:none}
 @media(max-width:900px){.wa-h{font-size:34px}#why-attend .wa-cards{grid-template-columns:1fr;max-width:560px}}
 /* about: the ENTIRE section stays black — quote band inherits instead of repainting */
@@ -2433,14 +2450,18 @@ html,body{max-width:100%;overflow-x:hidden}
 .i5-chips .chip i{font-style:normal;margin-right:7px}
 
 /* ===== intl=6: compact — no paragraph, icons in a row, slim chips ===== */
-.intl6 .i5{padding-block:22px 20px}
+.intl6 .i5{padding-block:16px 18px}
 .intl6 .i5-left p{display:none}
-.intl6 .i5-left h2{font-size:24px;margin-top:9px}
+.intl6 .i5-left h2{font-size:27px;margin-top:8px}
+.intl6 .i5-ic{flex-basis:42px;width:42px;height:42px;border-radius:11px}
+.intl6 .i5-ic svg{width:24px;height:24px}
+.intl6 .i5-mid i{font-size:10.5px}
+.intl6 .nh-inner{padding-block:clamp(44px,5.2vh,68px) clamp(24px,3.2vh,40px)}
 .intl6 .i5-grid{grid-template-columns:1fr auto;gap:44px;align-items:center}
 .intl6 .i5-right{flex-direction:row;gap:30px;align-items:center}
 .intl6 .i5-row em{display:none}
 .intl6 .i5-row{gap:11px}
-.intl6 .i5-mid b{font-size:14.5px;white-space:nowrap}
+.intl6 .i5-mid b{font-size:15.5px;white-space:nowrap}
 .intl6 .i5-chips{margin-top:18px;padding:9px 14px;border-radius:12px;gap:10px}
 .intl6 .i5-chips .chip{padding:7px 8px;font-size:12.5px}
 .intl6 .i5-cl{line-height:1.4}
@@ -2460,6 +2481,21 @@ html,body{max-width:100%;overflow-x:hidden}
 .intl7 .i5-chips{margin-top:12px;border:0;padding:0;gap:20px;justify-content:flex-start}
 .intl7 .i5-chips .chip{flex:0 0 auto;border:0;background:none;padding:0;font-size:13px;color:#c6ccd9}
 .intl7 .i5-cl{margin-right:2px}
+
+/* band language row as a full-page glass bar */
+.cbar-g .i5,.cbar-gt .i5{display:flex!important;flex-direction:column}
+.cbar-g .i5-grid,.cbar-gt .i5-grid{width:100%}
+.cbar-g .i5-chips,.cbar-gt .i5-chips{
+  border:0;border-radius:0;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
+  justify-content:center;background:rgba(12,16,28,.5);
+  backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);
+  border-top:1px solid rgba(255,255,255,.10);border-bottom:1px solid rgba(255,255,255,.10);
+  padding:11px 0;gap:18px}
+.cbar-g .i5-chips .chip,.cbar-gt .i5-chips .chip{flex:0 0 auto;border:0;background:none;padding:0;font-size:13.5px}
+.cbar-g .i5-chips{margin-top:20px;margin-bottom:-18px}
+.cbar-g.intl6 .i5{padding-bottom:0}
+.cbar-gt .i5-chips{order:-1;margin-top:-16px;margin-bottom:20px}
+.cbar-gt.intl6 .i5{padding-top:0}
 </style></head>
 <body>
 
@@ -2548,7 +2584,7 @@ html,body{max-width:100%;overflow-x:hidden}
   <div class="site-shell wa-grid">
     <div class="wa-copy">
       <h2 class="wa-h"><span class="lt">Practical</span> <span class="bd">Premiere Training</span></h2>
-      <p>Two days of learning straight from the Adobe Team and Community Experts.</p>
+      <p>Two days of learning straight from the Adobe Team <br class="wa-br">and Community Experts.</p>
       <p>Join the training live on Zoom to follow demonstrations and ask questions, with real-time captions in every session. Recordings of the sessions included with your ticket remain available for 180 days, with dubbing in seven languages available on request.</p>
     </div>
     <div class="wa-cards">

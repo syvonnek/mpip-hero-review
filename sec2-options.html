@@ -1,0 +1,46 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="Cache-Control" content="no-store">
+<title>Section 2 — options</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&display=swap">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#05070E;color:#F2F4FA;font:15px/1.55 "Source Sans 3",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1500px;margin:0 auto;padding:30px 26px 100px}
+h1{font-size:25px;font-weight:700}
+.sub{color:#98A0B0;font-size:14px;margin-top:6px}
+.card{margin-top:40px}
+.lab{display:flex;align-items:baseline;gap:12px;margin-bottom:10px}
+.lab b{font-size:13px;font-weight:800;letter-spacing:.1em;color:#3ED8F0}
+.lab .d{font-size:14px;color:#98A0B0}
+.lab a{margin-left:auto;font-size:13px;color:#B583FF;text-decoration:none}
+.stage{position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.11);border-radius:12px;background:#04060d}
+.stage iframe{border:0;display:block;transform-origin:top left;pointer-events:none}
+</style></head><body>
+<div class="wrap">
+<h1>Section 2 — copy options on the chosen card design</h1>
+<p class="sub">Both frames use the rolled card treatment: banner chips with subtle track fill, whole-card bloom, soft track border, cyan ghost Explore button.</p>
+<div id="cards"></div>
+</div>
+<script>
+var B="hero-lab.html?pos=top&t=1&pr=0&bg=cine&ui=frame2&rail=3&eb=ww&intl=6&spec=1&cards=5";
+var F=[
+ ["A — current copy","Practical Premiere Training · Two days of learning straight from the Adobe Team / and Community Experts.",B+"#why-attend"],
+ ["B — alternate copy","Two days of practical Premiere Training · Learn straight from the Adobe Team and Community Experts.",B+"&copy=b#why-attend"]
+];
+var W=1440,H=980;
+var cards=document.getElementById("cards");
+F.forEach(function(f){
+  var c=document.createElement("div");c.className="card";
+  c.innerHTML='<div class="lab"><b>'+f[0]+'</b><span class="d">'+f[1]+'</span>'+
+    '<a href="'+f[2]+'" target="_blank">open full page &rarr;</a></div>'+
+    '<div class="stage"><iframe src="'+f[2]+'" width="'+W+'" height="'+H+'"></iframe></div>';
+  cards.appendChild(c);
+});
+function scale(){
+  document.querySelectorAll(".stage").forEach(function(el){
+    var k=Math.min(1,el.clientWidth/W),f=el.querySelector("iframe");
+    f.style.transform="scale("+k+")";el.style.height=(H*k)+"px";
+  });
+}
+addEventListener("resize",scale);scale();
+</script>
+</body></html>
