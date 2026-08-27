@@ -1986,6 +1986,8 @@ var it=p.get('intl'); if(it)r.classList.add('intl'+it);
 var ri=p.get('ritem'); if(ri==='lang')r.classList.add('rail4L');
 if(p.get('hdr')==='w')r.classList.add('hdrw');
 if(p.get('hdro')==='1')r.classList.add('hdro');
+if(p.get('hpos')==='hero')r.classList.add('hph');
+if(p.get('hdr')==='wc')r.classList.add('hdrwc');
 var sp=p.get('spec'); if(sp)r.classList.add('spec'+sp);
 var lg=p.get('langs'); if(lg)r.classList.add('langs'+lg);
 if(ri==='lang'){document.addEventListener('DOMContentLoaded',function(){
@@ -2008,17 +2010,18 @@ if(it==='2'||it==='3'||it==='4'){document.addEventListener('DOMContentLoaded',fu
   // email-style full-size glyphs (no tiles): CC bubble / 文A / clock
   function setIc(sel,html){if(!email2)return;var e=document.querySelector(sel+' .er-ic'); if(e)e.innerHTML=html;}
   setIc('.er--cc2','<svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="e2a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2AD0F2"/><stop offset="1" stop-color="#4F7CFF"/></linearGradient></defs><g fill="none" stroke="url(#e2a)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 3.9h10.8a4.1 4.1 0 0 1 4.1 4.1v5a4.1 4.1 0 0 1-4.1 4.1h-7l-3.7 3v-3h-.1a4.1 4.1 0 0 1-4.1-4.1V8a4.1 4.1 0 0 1 4.1-4.1z"/><path d="M10.3 8.6a2.6 2.6 0 1 0 0 4.3M16.6 8.6a2.6 2.6 0 1 0 0 4.3"/></g></svg>');
-  setIc('.er--dub2','<svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="e2b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8B5CF6"/><stop offset="1" stop-color="#A78BFA"/></linearGradient></defs><g fill="none" stroke="url(#e2b)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.4 6.6h8.2M7.5 4.8v1.8M11 6.6c-.7 3.6-3 6.4-6.6 8M5.4 10c1.2 2.2 3.1 3.8 5.5 4.6"/><path d="M12.2 20l3.7-8.8 3.7 8.8M13.7 16.9h4.4"/></g></svg>');
+  if(!lg)setIc('.er--dub2','<svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="e2b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8B5CF6"/><stop offset="1" stop-color="#A78BFA"/></linearGradient></defs><g fill="none" stroke="url(#e2b)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.4 6.6h8.2M7.5 4.8v1.8M11 6.6c-.7 3.6-3 6.4-6.6 8M5.4 10c1.2 2.2 3.1 3.8 5.5 4.6"/><path d="M12.2 20l3.7-8.8 3.7 8.8M13.7 16.9h4.4"/></g></svg>');
   setIc('.er--rep2','<svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="e2c" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E34FCB"/><stop offset="1" stop-color="#F5A8E4"/></linearGradient></defs><g fill="none" stroke="url(#e2c)" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="8.8"/><path d="M12 6.9V12l3.4 2.1"/></g></svg>');
   var l=document.querySelector('.lang-bar .lb-l');
-  if(l)l.innerHTML='<svg viewBox="0 0 24 24" style="width:19px;height:19px;vertical-align:-4px;margin-right:8px" aria-hidden="true"><g fill="none" stroke="#3ED8F0" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="8.8"/><path d="M3.2 12h17.6M12 3.2c2.5 2.8 3.7 5.8 3.7 8.8s-1.2 6-3.7 8.8c-2.5-2.8-3.7-5.8-3.7-8.8s1.2-6 3.7-8.8z"/></g></svg>Languages';
+  if(l)l.innerHTML='<svg viewBox="0 0 24 24" style="width:19px;height:19px;vertical-align:-4px;margin-right:8px" aria-hidden="true"><g fill="none" stroke="#3ED8F0" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="8.8"/><path d="M3.2 12h17.6M12 3.2c2.5 2.8 3.7 5.8 3.7 8.8s-1.2 6-3.7 8.8c-2.5-2.8-3.7-5.8-3.7-8.8s1.2-6 3.7-8.8z"/></g></svg>Dubbing on Request';
 });}
-if((lg&&it!=='2'&&it!=='3'&&it!=='4')||ri==='lang'){document.addEventListener('DOMContentLoaded',function(){
+if(lg||ri==='lang'){document.addEventListener('DOMContentLoaded',function(){
   var d=document.querySelector('.er--dub2'); if(!d)return;
   var k=d.querySelector('.k'),v=d.querySelector('.v'),ic=d.querySelector('.er-ic');
+  var email2b=(it==='2');
   if(k)k.innerHTML='Join in Your Time Zone';
   if(v)v.textContent='9 AM EDT \u00b7 2 PM BST \u00b7 10 PM JST';
-  if(ic)ic.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="lgTZ" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4F7CFF"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs><g fill="none" stroke="url(#lgTZ)" stroke-linecap="round"><rect x="2.8" y="2.8" width="18.4" height="18.4" rx="5" stroke-width="1.3"/><g stroke-width="1.5"><circle cx="12" cy="12" r="5.6"/><path d="M12 8.9V12l2.3 1.5"/></g></g></svg>';
+  if(ic)ic.innerHTML=email2b?'<svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="e2t" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8B5CF6"/><stop offset="1" stop-color="#A78BFA"/></linearGradient></defs><g fill="none" stroke="url(#e2t)" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="8.8"/><path d="M12 6.9V12l3.4 2.1"/></g></svg>':'<svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="lgTZ" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4F7CFF"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs><g fill="none" stroke="url(#lgTZ)" stroke-linecap="round"><rect x="2.8" y="2.8" width="18.4" height="18.4" rx="5" stroke-width="1.3"/><g stroke-width="1.5"><circle cx="12" cy="12" r="5.6"/><path d="M12 8.9V12l2.3 1.5"/></g></g></svg>';
 });}
 var FX=['A-load','A-sheen','A-shimmer','A-drift','A-onair','A-reveal'];
 var fx=p.get('fx');
@@ -2370,6 +2373,23 @@ html,body{max-width:100%;overflow-x:hidden}
 /* header-outside: keep it on the band's dark ground, not the hero image */
 .hdro .nh-rail{margin-top:0!important;padding-top:72px}
 .hdro .rail-head{top:22px}
+</style><style>/* round N: her calls */
+/* 8b: band transparent so the hero image runs behind header + gradient container */
+.hdro .nh-rail{background:transparent!important;border-top:0!important;border-bottom:0!important}
+.hdro .rail-head h2{text-shadow:0 2px 18px rgba(0,0,0,.65)}
+/* header overlaying the hero image, above the rail strip (?hpos=hero) */
+.hph .nh-rail{position:relative}
+.hph .rail-head{display:block!important;position:absolute;bottom:calc(100% + 16px);left:0;right:0;
+  text-align:center;z-index:6;padding:0!important}
+.hph .rail-head h2{margin:0!important;text-shadow:0 2px 18px rgba(0,0,0,.65)}
+.hph .rail-head p,.hph .rail-head .lang-bar{display:none!important}
+/* white caps eyebrow header (?hdr=wc) */
+.hdrwc .rail-head h2{font-size:14.5px!important;font-weight:800!important;letter-spacing:.22em!important;
+  text-transform:uppercase!important;color:#F2F4FA!important}
+/* 11: glassier language bar */
+.langs4 .lang-bar{background:rgba(12,16,28,.5)!important;
+  backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);
+  border-top:1px solid rgba(255,255,255,.10)!important;border-bottom:1px solid rgba(255,255,255,.10)!important}
 </style></head>
 <body>
 
