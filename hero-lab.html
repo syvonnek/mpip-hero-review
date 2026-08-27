@@ -2397,9 +2397,14 @@ html,body{max-width:100%;overflow-x:hidden}
   border-top:1px solid rgba(255,255,255,.10)!important;border-bottom:1px solid rgba(255,255,255,.10)!important}
 </style><style>/* ===== intl=5: the ChatGPT Global Access band, with flags ===== */
 .i5{display:none}
-.intl5 .i5{display:block;padding:34px 26px 30px;max-width:1240px;margin-inline:auto;box-sizing:border-box}
-.intl5 .nh-rail .event-rail,.intl5 .rail-head,.intl5 .nh-rail .lang-bar{display:none!important}
-.intl5 .nh-rail{background:
+.intl5 .i5,.intl6 .i5,.intl7 .i5{display:block;box-sizing:border-box;
+  width:100%;max-width:var(--shell-max);margin-inline:auto;padding:34px var(--shell-pad) 30px}
+/* the rail shell already pads; when .i5 sits inside it, don't double-pad */
+.nh-rail .site-shell .i5{max-width:none;padding-inline:0}
+.intl5 .nh-rail .event-rail,.intl5 .rail-head,.intl5 .nh-rail .lang-bar,
+.intl6 .nh-rail .event-rail,.intl6 .rail-head,.intl6 .nh-rail .lang-bar,
+.intl7 .nh-rail .event-rail,.intl7 .rail-head,.intl7 .nh-rail .lang-bar{display:none!important}
+.intl5 .nh-rail,.intl6 .nh-rail,.intl7 .nh-rail{background:
   radial-gradient(640px 320px at 6% 108%,rgba(227,79,203,.17),transparent 62%),
   radial-gradient(760px 360px at 98% 55%,rgba(139,92,246,.19),transparent 66%),
   linear-gradient(180deg,#0A0E1E,#0B0F22)}
@@ -2426,6 +2431,35 @@ html,body{max-width:100%;overflow-x:hidden}
   border:1px solid rgba(130,140,170,.4);background:rgba(12,16,34,.55);
   font-size:13px;font-weight:600;color:#E7EBF4}
 .i5-chips .chip i{font-style:normal;margin-right:7px}
+
+/* ===== intl=6: compact — no paragraph, icons in a row, slim chips ===== */
+.intl6 .i5{padding-block:22px 20px}
+.intl6 .i5-left p{display:none}
+.intl6 .i5-left h2{font-size:24px;margin-top:9px}
+.intl6 .i5-grid{grid-template-columns:1fr auto;gap:44px;align-items:center}
+.intl6 .i5-right{flex-direction:row;gap:30px;align-items:center}
+.intl6 .i5-row em{display:none}
+.intl6 .i5-row{gap:11px}
+.intl6 .i5-mid b{font-size:14.5px;white-space:nowrap}
+.intl6 .i5-chips{margin-top:18px;padding:9px 14px;border-radius:12px;gap:10px}
+.intl6 .i5-chips .chip{padding:7px 8px;font-size:12.5px}
+.intl6 .i5-cl{line-height:1.4}
+
+/* ===== intl=7: minimal — one tight block, languages as a bare flag row ===== */
+.intl7 .i5{padding-block:20px 18px}
+.intl7 .i5-left p{display:none}
+.intl7 .i5-left h2{font-size:22px;margin-top:8px}
+.intl7 .i5-grid{grid-template-columns:1fr auto;gap:40px;align-items:center}
+.intl7 .i5-right{flex-direction:row;gap:26px;align-items:center}
+.intl7 .i5-row em{display:none}
+.intl7 .i5-row{gap:10px}
+.intl7 .i5-mid i{display:none}
+.intl7 .i5-mid b{font-size:14px;white-space:nowrap}
+.intl7 .i5-ic{flex-basis:32px;width:32px;height:32px;border-radius:9px}
+.intl7 .i5-ic svg{width:19px;height:19px}
+.intl7 .i5-chips{margin-top:12px;border:0;padding:0;gap:20px;justify-content:flex-start}
+.intl7 .i5-chips .chip{flex:0 0 auto;border:0;background:none;padding:0;font-size:13px;color:#c6ccd9}
+.intl7 .i5-cl{margin-right:2px}
 </style></head>
 <body>
 
