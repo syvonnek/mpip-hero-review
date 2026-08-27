@@ -1986,6 +1986,17 @@ var cb2=p.get('cbar'); if(cb2)r.classList.add('cbar-'+cb2);
 var lr=p.get('lr'); if(lr)r.classList.add('lr-'+lr);
 if(p.get('ni')==='1')r.classList.add('ni1');
 var e2=p.get('eb2'); if(e2)r.classList.add('eb2-'+e2);
+var it5=p.get('intl');
+if(it5==='5'||it5==='6'||it5==='7'){document.addEventListener('DOMContentLoaded',function(){
+  var rows2=document.querySelectorAll('.i5-row');
+  var r2=rows2[1]; if(!r2)return;
+  var b2=r2.querySelector('.i5-mid b');
+  if(b2&&b2.textContent.indexOf('dubbed')>-1){
+    var i2=r2.querySelector('.i5-mid i'); if(i2)i2.textContent='Time zone';
+    b2.textContent='Join in your time zone';
+    r2.querySelector('.i5-ic').innerHTML='<svg viewBox="0 0 24 24"><g fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="8.6"/><path d="M12 7V12l3.2 2"/></g></svg>';
+  }
+});}
 var hx=p.get('hier');
 if(hx){r.classList.add('hierx');r.classList.add('h'+hx+'x');
   document.addEventListener('DOMContentLoaded',function(){
