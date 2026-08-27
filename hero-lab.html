@@ -1984,6 +1984,7 @@ if(p.get('rule')==='0')r.classList.add('rule-off');
 var cds=p.get('cards'); if(cds)r.classList.add('cards'+cds);
 var it=p.get('intl'); if(it)r.classList.add('intl'+it);
 var ri=p.get('ritem'); if(ri==='lang')r.classList.add('rail4L');
+if(p.get('hdr')==='w')r.classList.add('hdrw');
 var sp=p.get('spec'); if(sp)r.classList.add('spec'+sp);
 var lg=p.get('langs'); if(lg)r.classList.add('langs'+lg);
 if(ri==='lang'){document.addEventListener('DOMContentLoaded',function(){
@@ -2279,6 +2280,8 @@ html,body{max-width:100%;overflow-x:hidden}
   background:rgba(255,255,255,.045);gap:14px}
 .intl3 .lang-bar .lb-i,.intl4 .lang-bar .lb-i{display:none}
 .intl4 .rail-head h2{font-size:24px;font-weight:700;letter-spacing:-.012em;text-transform:none;color:#F2F4FA}
+.hdrw .rail-head h2{font-size:24px!important;font-weight:700!important;letter-spacing:-.012em!important;
+  text-transform:none!important;color:#F2F4FA!important}
 .intl3 .lang-bar .lb-list,.intl4 .lang-bar .lb-list{gap:13px}
 /* langs=3 — no pill: full-bleed banner flush at the very bottom of the band */
 .langs3 .lang-bar{order:3;justify-content:center;border:0;border-radius:0;background:rgba(3,5,10,.65);
