@@ -1987,6 +1987,10 @@ var ri=p.get('ritem'); if(ri==='lang')r.classList.add('rail4L');
 if(p.get('hdr')==='w')r.classList.add('hdrw');
 if(p.get('hdro')==='1')r.classList.add('hdro');
 if(p.get('hpos')==='hero')r.classList.add('hph');
+if(p.get('hpos')==='hero'){document.addEventListener('DOMContentLoaded',function(){
+  var bar=document.querySelector('.rail-head .lang-bar'),shell=document.querySelector('.nh-rail .site-shell');
+  if(bar&&shell)shell.insertBefore(bar,shell.firstChild);
+});}
 if(p.get('hdr')==='wc')r.classList.add('hdrwc');
 var sp=p.get('spec'); if(sp)r.classList.add('spec'+sp);
 var lg=p.get('langs'); if(lg)r.classList.add('langs'+lg);
@@ -2241,10 +2245,9 @@ html,body{max-width:100%;overflow-x:hidden}
 
 /* 5 — Spotlight: radial track-colour bloom behind the icon */
 .cards5 #why-attend .wa-card{position:relative;overflow:hidden;background:#0A0E1A}
-.cards5 #why-attend .wa-card::before{content:"";position:absolute;left:50%;top:74px;width:340px;height:200px;
-  transform:translateX(-50%);pointer-events:none;
-  background:radial-gradient(50% 50% at 50% 50%,color-mix(in srgb,var(--ct) 26%,transparent),transparent 72%);
-  filter:blur(6px)}
+.cards5 #why-attend .wa-card::before{content:"";position:absolute;inset:-8%;pointer-events:none;
+  background:radial-gradient(70% 62% at 50% 42%,color-mix(in srgb,var(--ct) 10%,transparent),transparent 74%);
+  filter:blur(14px)}
 .cards5 #why-attend .wa-card>*{position:relative;z-index:1}
 #why-attend .wa-card p{max-width:none}
 @media(max-width:900px){.wa-h{font-size:34px}#why-attend .wa-cards{grid-template-columns:1fr;max-width:560px}}
@@ -2362,11 +2365,11 @@ html,body{max-width:100%;overflow-x:hidden}
 .intl1 .nh-inner{padding-block:clamp(48px,5.6vh,74px) clamp(26px,3.4vh,42px)}
 </style><style>/* late overrides: full-bleed strips beat the pill styling in any intl mode */
 .langs3 .lang-bar,.langs4 .lang-bar,.langs5 .lang-bar{
-  border-radius:0!important;border:0!important;width:100vw!important;max-width:100vw!important;
+  display:flex!important;border-radius:0!important;border:0!important;width:100vw!important;max-width:100vw!important;
   justify-content:center!important;padding:13px 0!important}
 .langs3 .lang-bar,.langs5 .lang-bar{margin:26px calc(50% - 50vw) 0!important;
   border-top:1px solid rgba(255,255,255,.08)!important}
-.langs4 .lang-bar{margin:0 calc(50% - 50vw) 24px!important;
+.langs4 .lang-bar{order:-1!important;gap:20px!important;margin:0 calc(50% - 50vw) 24px!important;
   border-bottom:1px solid rgba(255,255,255,.08)!important}
 .langs5 .lang-bar{background:#060810!important}
 .langs3 .nh-rail .site-shell,.langs5 .nh-rail .site-shell{padding-bottom:0!important}
@@ -2382,7 +2385,7 @@ html,body{max-width:100%;overflow-x:hidden}
 .hph .rail-head{display:block!important;position:absolute;bottom:calc(100% + 16px);left:0;right:0;
   text-align:center;z-index:6;padding:0!important}
 .hph .rail-head h2{margin:0!important;text-shadow:0 2px 18px rgba(0,0,0,.65)}
-.hph .rail-head p,.hph .rail-head .lang-bar{display:none!important}
+.hph .rail-head p{display:none!important}
 /* white caps eyebrow header (?hdr=wc) */
 .hdrwc .rail-head h2{font-size:14.5px!important;font-weight:800!important;letter-spacing:.22em!important;
   text-transform:uppercase!important;color:#F2F4FA!important}
