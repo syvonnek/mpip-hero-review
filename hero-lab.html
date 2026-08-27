@@ -1983,6 +1983,24 @@ if(p.get('price')==='1')r.classList.add('price-on');
 if(p.get('rule')==='0')r.classList.add('rule-off');
 var cds=p.get('cards'); if(cds)r.classList.add('cards'+cds);
 var cb2=p.get('cbar'); if(cb2)r.classList.add('cbar-'+cb2);
+var lr=p.get('lr'); if(lr)r.classList.add('lr-'+lr);
+if(p.get('ni')==='1')r.classList.add('ni1');
+var e2=p.get('eb2'); if(e2)r.classList.add('eb2-'+e2);
+if(lr){document.addEventListener('DOMContentLoaded',function(){
+  var right=document.querySelector('.i5-right'); if(!right)return;
+  var rows=[].slice.call(right.querySelectorAll('.i5-row'));
+  var wrap=document.createElement('div'); wrap.className='i5-icons';
+  rows.forEach(function(x){wrap.appendChild(x);});
+  right.appendChild(wrap);
+  var ch=document.querySelector('.i5-chips'); if(ch)right.appendChild(ch);
+});}
+if(e2==='grad'){document.addEventListener('DOMContentLoaded',function(){
+  var h=document.querySelector('.i5-left h2');
+  if(h)h.innerHTML='Join live from <em class="gw">anywhere.</em><br>Watch back in <em class="gw">your language.</em>';
+});}
+if(e2==='ww'){document.addEventListener('DOMContentLoaded',function(){
+  var e=document.querySelector('.i5-eb'); if(e)e.textContent='Worldwide';
+});}
 if(p.get('copy')==='b'){document.addEventListener('DOMContentLoaded',function(){
   var h=document.querySelector('.wa-h'); if(h)h.innerHTML='<span class="lt">Two days of practical</span> <span class="bd">Premiere Training</span>';
   var pp=document.querySelector('#why-attend .wa-copy p'); if(pp)pp.innerHTML='Learn straight from the Adobe Team and Community Experts.';
@@ -2496,6 +2514,26 @@ html,body{max-width:100%;overflow-x:hidden}
 .cbar-g.intl6 .i5{padding-bottom:0}
 .cbar-gt .i5-chips{order:-1;margin-top:-16px;margin-bottom:20px}
 .cbar-gt.intl6 .i5{padding-top:0}
+
+/* ===== language row integrated into the band's right side (?lr=under|above) ===== */
+.lr-under .i5,.lr-above .i5{padding-block:14px 16px}
+.lr-under .i5-grid,.lr-above .i5-grid{gap:40px;align-items:center}
+.lr-under .i5-right,.lr-above .i5-right{flex-direction:column;align-items:flex-start;gap:13px}
+.i5-icons{display:flex;gap:28px;align-items:center}
+.lr-under .i5-chips,.lr-above .i5-chips{border:0;padding:0;margin:0;gap:14px;justify-content:flex-start;
+  width:auto;max-width:none;background:none}
+.lr-under .i5-chips .chip,.lr-above .i5-chips .chip{flex:0 0 auto;border:0;background:none;padding:0;
+  font-size:12.5px;color:#aab2c4}
+.lr-under .i5-chips .i5-cl,.lr-above .i5-chips .i5-cl{display:none}
+.lr-above .i5-chips{order:-1}
+/* borderless icon glyphs (?ni=1) */
+.ni1 .i5-ic{border:0;background:none;flex-basis:auto;width:auto;height:auto;border-radius:0}
+.ni1 .i5-ic svg{width:25px;height:25px}
+/* eyebrow variants */
+.eb2-off .i5-eb,.eb2-grad .i5-eb{display:none}
+.eb2-off .i5-left h2,.eb2-grad .i5-left h2{margin-top:0}
+.gw{font-style:normal;background:linear-gradient(92deg,#22D3EE,#4F7CFF 45%,#A78BFA);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
 </style></head>
 <body>
 
