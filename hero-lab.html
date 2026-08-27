@@ -2382,9 +2382,11 @@ html,body{max-width:100%;overflow-x:hidden}
 .hdro .rail-head h2{text-shadow:0 2px 18px rgba(0,0,0,.65)}
 /* header overlaying the hero image, above the rail strip (?hpos=hero) */
 .hph .nh-rail{position:relative}
-.hph .rail-head{display:block!important;position:absolute;bottom:calc(100% + 16px);left:0;right:0;
+.hph .rail-head{display:block!important;position:absolute;bottom:calc(100% + 22px);left:0;right:0;
   text-align:center;z-index:6;padding:0!important}
 .hph .rail-head h2{margin:0!important;text-shadow:0 2px 18px rgba(0,0,0,.65)}
+/* real air above the floating header: hero content ends well before the band */
+.hph .nh-inner{padding-bottom:clamp(88px,10vh,132px)!important}
 .hph .rail-head p{display:none!important}
 /* white caps eyebrow header (?hdr=wc) */
 .hdrwc .rail-head h2{font-size:14.5px!important;font-weight:800!important;letter-spacing:.22em!important;
