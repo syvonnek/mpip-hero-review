@@ -1205,6 +1205,7 @@ footer::before{content:"";position:absolute;top:0;left:50%;transform:translateX(
 }
 
 /* ---------- entrances ---------- */
+.norv .reveal,.norv .reveal .why-item,.norv .reveal .gcell{opacity:1!important;transform:none!important;transition:none!important}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.16,1,.3,1),transform .55s cubic-bezier(.16,1,.3,1)}
 .reveal.in{opacity:1;transform:none}
 
@@ -1986,6 +1987,7 @@ var cb2=p.get('cbar'); if(cb2)r.classList.add('cbar-'+cb2);
 var lr=p.get('lr'); if(lr)r.classList.add('lr-'+lr);
 if(p.get('ni')==='1')r.classList.add('ni1');
 var e2=p.get('eb2'); if(e2)r.classList.add('eb2-'+e2);
+if(p.get('norv')==='1')r.classList.add('norv');
 var it5=p.get('intl');
 if(it5==='5'||it5==='6'||it5==='7'){document.addEventListener('DOMContentLoaded',function(){
   var rows2=document.querySelectorAll('.i5-row');
