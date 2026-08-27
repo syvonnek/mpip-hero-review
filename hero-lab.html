@@ -1646,7 +1646,7 @@ nav .navlinks{gap:32px;font-size:16.5px;font-weight:500}
 /* optical alignment: the dot's glow ring + the M's side bearing at 87px made the
    eyebrow read left of the headline edge */
 .nh-live{margin-left:7px}
-.nh h1 .sub{margin-top:.32em;font-size:31px}
+.nh h1 .sub{margin-top:.32em;font-size:30.5px}
 .nh-rule{max-width:508px;margin:20px 0 21px}
 .nh-meta{margin-top:13px;font-size:14px;letter-spacing:.09em;color:rgba(231,235,244,.81)}
 
@@ -1851,7 +1851,7 @@ nav.is-scrolled .navlinks a{color:#b9c0cf}
 
 /* ===== R: composite recommendation ===== */
 .nh-meta{display:none}
-.nh-meta2{display:flex;align-items:center;gap:14px;margin-top:15px;
+.nh-meta2{display:flex;align-items:center;gap:14px;margin-top:10px;
   font-size:15.5px;font-weight:650;letter-spacing:.015em;color:rgba(236,240,248,.9)}
 .nh-meta2 span{display:inline-flex;align-items:center;gap:9px}
 .nh-meta2 svg{width:19px;height:19px;flex:0 0 auto;fill:none;stroke-width:1.7;stroke-linecap:round}
@@ -1860,7 +1860,7 @@ nav.is-scrolled .navlinks a{color:#b9c0cf}
 .nh-meta2 .m2d{width:1px;height:17px;background:rgba(255,255,255,.25)}
 @media(max-width:900px){.nh-meta2{flex-wrap:wrap;row-gap:8px;font-size:14px}.nh-meta2 .m2d{display:none}}
 .r1 .nh-meta{display:none}
-.r1 .nh-meta2{display:flex;align-items:center;gap:14px;margin-top:15px;
+.r1 .nh-meta2{display:flex;align-items:center;gap:14px;margin-top:10px;
   font-size:15.5px;font-weight:650;letter-spacing:.015em;color:rgba(236,240,248,.9)}
 .r1 .nh-meta2 span{display:inline-flex;align-items:center;gap:9px}
 .r1 .nh-meta2 svg{width:19px;height:19px;flex:0 0 auto;stroke:#3ED8F0;fill:none;
@@ -1914,10 +1914,12 @@ nav.is-scrolled .navlinks a{color:#b9c0cf}
   linear-gradient(180deg,rgba(4,6,13,.5) 0%,transparent 24%,transparent 55%,rgba(4,6,13,.9) 100%)}
 
 /* ===== panel: cinematic dark slab (Chad v2) — real Adobe capture inside ===== */
+/* slightly larger panel: widen its grid column (desktop only), right edge stays on the shell */
+@media(min-width:1101px){.ui-frame2 .nh-inner{grid-template-columns:minmax(0,1fr) minmax(480px,0.99fr)}}
 /* Reference: ChatGPT "Refined split hero" slab — large charcoal plate, thin light
    border, even padding, the REAL Adobe capture floating inside with its own radius. */
 .ui-frame2 .nh-ui{
-  width:min(100%,672px);
+  width:min(100%,704px);
   aspect-ratio:auto;overflow:visible;
   padding:7px;border-radius:23px;
   border:1px solid transparent;
@@ -1961,10 +1963,10 @@ document.addEventListener('DOMContentLoaded',function(){
     st[0].setAttribute('stop-color',c1);st[1].setAttribute('stop-color',c2);}
   // spectrum tokens: cyan #2AD0F2 · blue #4F7CFF · violet #8B5CF6 · lt violet #A78BFA · magenta #F04ED4
   if(r.classList.contains('rail3')){
-    // Replay → Captions → Dubbing : cyan→blue, blue→violet, magenta→violet (ends hot)
-    grad('lgD','#2AD0F2','#4F7CFF');   // replay
-    grad('lgB','#4F7CFF','#8B5CF6');   // captions
-    grad('lgC','#F04ED4','#8B5CF6');   // dubbing
+    // Captions → Dubbing → Replay : cyan→blue, blue→violet, magenta→violet (ends hot)
+    grad('lgB','#2AD0F2','#4F7CFF');   // captions
+    grad('lgC','#4F7CFF','#8B5CF6');   // dubbing
+    grad('lgD','#F04ED4','#8B5CF6');   // replay
   } else {
     // Join → Replay → Captions → Dubbing : cyan→blue, blue→violet, violet→lt violet, magenta
     grad('lgA','#2AD0F2','#4F7CFF');   // join
@@ -1978,6 +1980,73 @@ var c=p.get('c'); if(c)r.classList.add('c'+c);
 if(p.get('pr')==='0')r.classList.add('pr-off');
 if(p.get('pr')==='1')r.classList.add('pr-on');
 if(p.get('price')==='1')r.classList.add('price-on');
+if(p.get('rule')==='0')r.classList.add('rule-off');
+var cds=p.get('cards'); if(cds)r.classList.add('cards'+cds);
+var it=p.get('intl'); if(it)r.classList.add('intl'+it);
+var ri=p.get('ritem'); if(ri==='lang')r.classList.add('rail4L');
+var sp=p.get('spec'); if(sp)r.classList.add('spec'+sp);
+var lg=p.get('langs'); if(lg)r.classList.add('langs'+lg);
+if(ri==='lang'){document.addEventListener('DOMContentLoaded',function(){
+  var j=document.querySelector('.er--join'); if(!j)return;
+  var k=j.querySelector('.k'),v=j.querySelector('.v');
+  if(k)k.textContent='Available in 7 Languages';
+  if(v)v.textContent='🇺🇸 🇪🇸 🇫🇷 🇩🇪 🇯🇵 🇵🇹 🇮🇹';
+});}
+if(p.get('greet')==='1'){r.classList.add('greet1');
+  document.addEventListener('DOMContentLoaded',function(){
+    var head=document.querySelector('.rail-head'); if(!head)return;
+    var g=document.createElement('div'); g.className='rail-greet'; g.textContent='Hello';
+    head.insertBefore(g,head.firstChild);
+    var words=['Hello','Hola','Bonjour','Hallo','\u3053\u3093\u306b\u3061\u306f','Ol\u00e1','Ciao'],i=0;
+    setInterval(function(){g.classList.add('fade');
+      setTimeout(function(){i=(i+1)%words.length;g.textContent=words[i];g.classList.remove('fade');},450);},2600);
+  });}
+if(it==='2'||it==='3'){document.addEventListener('DOMContentLoaded',function(){
+  var email2=(it==='2');
+  // email-style full-size glyphs (no tiles): CC bubble / 文A / clock
+  function setIc(sel,html){if(!email2)return;var e=document.querySelector(sel+' .er-ic'); if(e)e.innerHTML=html;}
+  setIc('.er--cc2','<svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="e2a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2AD0F2"/><stop offset="1" stop-color="#4F7CFF"/></linearGradient></defs><g fill="none" stroke="url(#e2a)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 3.9h10.8a4.1 4.1 0 0 1 4.1 4.1v5a4.1 4.1 0 0 1-4.1 4.1h-7l-3.7 3v-3h-.1a4.1 4.1 0 0 1-4.1-4.1V8a4.1 4.1 0 0 1 4.1-4.1z"/><path d="M10.3 8.6a2.6 2.6 0 1 0 0 4.3M16.6 8.6a2.6 2.6 0 1 0 0 4.3"/></g></svg>');
+  setIc('.er--dub2','<svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="e2b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8B5CF6"/><stop offset="1" stop-color="#A78BFA"/></linearGradient></defs><g fill="none" stroke="url(#e2b)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.4 6.6h8.2M7.5 4.8v1.8M11 6.6c-.7 3.6-3 6.4-6.6 8M5.4 10c1.2 2.2 3.1 3.8 5.5 4.6"/><path d="M12.2 20l3.7-8.8 3.7 8.8M13.7 16.9h4.4"/></g></svg>');
+  setIc('.er--rep2','<svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="e2c" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E34FCB"/><stop offset="1" stop-color="#F5A8E4"/></linearGradient></defs><g fill="none" stroke="url(#e2c)" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="8.8"/><path d="M12 6.9V12l3.4 2.1"/></g></svg>');
+  var l=document.querySelector('.lang-bar .lb-l');
+  if(l)l.innerHTML='<svg viewBox="0 0 24 24" style="width:19px;height:19px;vertical-align:-4px;margin-right:8px" aria-hidden="true"><g fill="none" stroke="#3ED8F0" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="8.8"/><path d="M3.2 12h17.6M12 3.2c2.5 2.8 3.7 5.8 3.7 8.8s-1.2 6-3.7 8.8c-2.5-2.8-3.7-5.8-3.7-8.8s1.2-6 3.7-8.8z"/></g></svg>Languages';
+});}
+if((lg&&it!=='2'&&it!=='3')||ri==='lang'){document.addEventListener('DOMContentLoaded',function(){
+  var d=document.querySelector('.er--dub2'); if(!d)return;
+  var k=d.querySelector('.k'),v=d.querySelector('.v'),ic=d.querySelector('.er-ic');
+  if(k)k.innerHTML='Join in Your Time Zone';
+  if(v)v.textContent='9 AM EDT \u00b7 2 PM BST \u00b7 10 PM JST';
+  if(ic)ic.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="lgTZ" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4F7CFF"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs><g fill="none" stroke="url(#lgTZ)" stroke-linecap="round"><rect x="2.8" y="2.8" width="18.4" height="18.4" rx="5" stroke-width="1.3"/><g stroke-width="1.5"><circle cx="12" cy="12" r="5.6"/><path d="M12 8.9V12l2.3 1.5"/></g></g></svg>';
+});}
+var FX=['A-load','A-sheen','A-shimmer','A-drift','A-onair','A-reveal'];
+var fx=p.get('fx');
+if(p.get('anim')==='1')FX.forEach(function(k){r.classList.add(k);});
+if(fx)fx.split(',').forEach(function(k){r.classList.add('A-'+k);});
+if(fx&&fx.indexOf('load')>-1){setInterval(function(){r.classList.remove('A-load');
+  void document.documentElement.offsetWidth;
+  setTimeout(function(){r.classList.add('A-load');},80);},4800);}
+document.addEventListener('DOMContentLoaded',function(){
+  if(!r.classList.contains('A-reveal'))return;
+  var els=document.querySelectorAll('#why-attend .wa-copy, #why-attend .wa-card, #about > *');
+  els.forEach(function(e){e.classList.add('rv');});
+  if(fx&&fx.indexOf('reveal')>-1){
+    var wa=document.getElementById('why-attend'); if(wa)wa.scrollIntoView();
+    var on=false;
+    setInterval(function(){on=!on;
+      els.forEach(function(e,i){setTimeout(function(){e.classList.toggle('rv-in',on);},on?i*90:0);});},2600);
+  } else {
+    var io=new IntersectionObserver(function(en){en.forEach(function(x){
+      if(x.isIntersecting){x.target.classList.add('rv-in');io.unobserve(x.target);}});},{threshold:.15});
+    els.forEach(function(e){io.observe(e);});
+  }
+});
+if(p.get('eb')==='ww'){r.classList.add('eb-ww');
+  document.addEventListener('DOMContentLoaded',function(){
+    var t=document.querySelector('.ll-txt'); if(t)t.textContent='Global Training Event';
+    // meta pairs with the ww eyebrow: "Live on Zoom" + on-air mark (worldwide moved up, live restored)
+    var m=document.querySelector('.nh-meta2 span:last-of-type');
+    if(m){m.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="#5B8DEF" stroke-width="1.7" stroke-linecap="round"><path d="M9.3 8a6 6 0 0 0 0 8M14.7 8a6 6 0 0 1 0 8"/><path d="M6.4 5.2a10 10 0 0 0 0 13.6M17.6 5.2a10 10 0 0 1 0 13.6" opacity=".55"/></g><circle cx="12" cy="12" r="2.3" fill="#5B8DEF"/></svg>Live Online';}
+  });}
 if(p.get('nav')==='center')r.classList.add('nav-center');
 var bg=p.get('bg');
 if(bg==='truck'){r.classList.add('bg-truck');r.classList.add('ui-off');}
@@ -2011,7 +2080,7 @@ if(p.get('r')==='1'){['pos-top','t5','s1','r1','rail3','bg-cine','ui-frame2'].fo
   .nh .nh-ctas{margin-top:22px}
   /* rail on mobile: follows the desktop choice (her call 2026-08-27: 3 everywhere).
      rail3 keeps er--join hidden; the replay tile spans the full row below the pair. */
-  .rail3 .nh-rail .er--dub2{grid-column:1/-1}
+  .rail3 .nh-rail .er--rep2{grid-column:1/-1}
   .nh-rail .nh-intl{display:grid;grid-template-columns:1fr 1fr;gap:26px 14px}
   .nh-rail .event-rail.event-rail--beside.nh-intl .er{flex-direction:column;align-items:center;text-align:center;gap:11px;justify-content:flex-start}
   .nh-rail .event-rail.event-rail--beside.nh-intl .ft{align-items:center;text-align:center}
@@ -2039,7 +2108,7 @@ html,body{max-width:100%;overflow-x:hidden}
 }
 </style><style>/* ===== her refinement pass (2026-08-27, session 3) ===== */
 /* gradient rule: was 508px — too wide against the 2-line subtitle */
-.nh-rule{max-width:352px}
+.nh-rule{max-width:543px;margin:16px 0 26px}
 /* rail: tighter title-to-subtext, bigger icons nudged up, optical gap fixes */
 .nh-rail .nh-intl .v{margin-top:4px}
 @media(min-width:901px){
@@ -2049,8 +2118,217 @@ html,body{max-width:100%;overflow-x:hidden}
 /* meta row: globe drew optically smaller than the clock; both nudged up 1px */
 .nh-meta2 svg{position:relative;top:-1px}
 .nh-meta2 span:last-of-type svg{width:20px;height:20px}
+/* eyebrow variant: WORLDWIDE TRAINING EVENT + globe (?eb=ww) */
+.nh-gl{display:none;width:22px;height:22px;flex:0 0 auto}
+.eb-ww .nh-gl{display:block}
+.eb-ww .nh-meta2 .m2d{display:none}
+.rule-off .nh-rule{display:none}
+.eb-ww .nh-meta2 span:last-of-type svg{width:24px;height:24px}
+.eb-ww .nh-meta2 span:last-of-type{gap:7px}
+/* ww eyebrow: 16px, light cyan, slow drift through the cyan→violet ramp.
+   Pill border/bg + globe stroke ride along via currentColor. */
+.eb-ww .nh-live{font-size:16px;color:#93E3FF;animation:ebshift 6s ease-in-out infinite}
+@keyframes ebshift{
+  0%,100%{color:#93E3FF}
+  35%{color:#7C9CFF}
+  68%{color:#A78BFA}}
+@supports (color:color(display-p3 1 0 0)){
+  .eb-ww .nh-live{color:color(display-p3 .575 .888 1)}
+  @keyframes ebshift{
+    0%,100%{color:color(display-p3 .575 .888 1)}
+    35%{color:color(display-p3 .49 .62 1)}
+    68%{color:color(display-p3 .66 .55 .98)}}
+}
+@media(prefers-reduced-motion:reduce){.eb-ww .nh-live{animation:none}}
+.eb-ww .nh-ld,.eb-ww .live-pr{display:none!important}
 /* eyebrow pill: nudge down toward the headline (her note) */
-.pos-top .nh-copy .nh-live{margin:10px 0 26px}
+.pos-top .nh-copy .nh-live{margin:10px 0 20px}
+/* balance: lift the copy column a touch against the panel */
+.pos-top .nh-copy{position:relative;top:-6px}
+</style><style>/* ===== MOTION PASS — per-effect classes (A-*). ?anim=1 = all; ?fx=<name> = one.
+   Demo-mode !important (pane/OS force-disables); production re-adds reduced-motion guards. */
+@keyframes heroIn{from{opacity:0;transform:translateY(12px);filter:blur(5px)}
+  to{opacity:1;transform:none;filter:none}}
+@keyframes ruleIn{from{opacity:0;transform:scaleX(0)}to{opacity:1;transform:scaleX(1)}}
+@keyframes panelIn{from{opacity:0;transform:translateY(20px) scale(.975);filter:blur(6px)}
+  to{opacity:1;transform:none;filter:none}}
+/* A-load: entrance cascade */
+.A-load .nh-copy>*{animation:heroIn .6s cubic-bezier(.22,1,.36,1) both!important}
+.A-load .nh-copy .nh-live{animation-delay:.05s!important}
+.A-load .nh-copy h1{animation-delay:.14s!important}
+.A-load .nh-copy .nh-date{animation-delay:.34s!important}
+.A-load .nh-copy .nh-meta2{animation-delay:.42s!important}
+.A-load .nh-copy .nh-ctas{animation-delay:.5s!important}
+.A-load .nh-copy .nh-rule{animation:ruleIn .7s cubic-bezier(.22,1,.36,1) .3s both!important;transform-origin:left}
+.A-load .nh-ui{animation:panelIn .8s cubic-bezier(.22,1,.36,1) .38s both!important}
+.A-load .nh-rail{animation:heroIn .6s cubic-bezier(.22,1,.36,1) .62s both!important}
+/* A-sheen: slow, elegant, continuous sweep across the silver rim */
+.A-sheen.ui-frame2 .nh-ui::after{content:"";position:absolute;inset:0;border-radius:23px;pointer-events:none;
+  background:linear-gradient(115deg,transparent 34%,rgba(255,255,255,.10) 50%,transparent 66%);
+  background-size:280% 100%;background-position:200% 0;
+  animation:sheen 6.5s linear infinite!important}
+@keyframes sheen{0%{background-position:200% 0}100%{background-position:-100% 0}}
+/* A-shimmer: subtitle gradient travel */
+.A-shimmer .nh h1 .sub{
+  background:linear-gradient(92deg,#22D3EE,#4F7CFF 30%,#8B5CF6 55%,#A78BFA 72%,#4F7CFF 88%,#22D3EE)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;
+  background-size:220% 100%!important;
+  animation:shimmer 12s ease-in-out infinite!important}
+@keyframes shimmer{0%,100%{background-position:0% 0}50%{background-position:100% 0}}
+/* A-drift: eyebrow colour drift (needs eb=ww) */
+.A-drift .nh-live{animation:ebshift 6s ease-in-out infinite!important}
+/* A-onair: the live mark breathes */
+.A-onair .nh-meta2 svg path[opacity]{animation:nhlp 2.4s ease-in-out infinite!important}
+/* A-reveal: scroll reveals */
+.A-reveal .rv{opacity:0;transform:translateY(16px);filter:blur(5px);
+  transition:opacity .65s cubic-bezier(.22,1,.36,1) !important,transform .65s cubic-bezier(.22,1,.36,1) !important,filter .65s !important}
+.A-reveal .rv.rv-in{opacity:1;transform:none;filter:none}
+.A-reveal .wa-card.rv{transition-delay:.08s}
+.A-reveal .wa-card.rv:last-child{transition-delay:.18s}
+</style><style>/* ===== why-attend: centered composition (her spec) ===== */
+#why-attend .wa-grid{grid-template-columns:1fr;gap:42px;justify-items:center}
+#why-attend .wa-copy{display:flex;flex-direction:column;align-items:center;text-align:center}
+.wa-h{font-size:54px;letter-spacing:-.03em;line-height:1.02}
+.wa-h .lt{font-weight:300}
+.wa-h .bd{font-weight:600}
+#why-attend .wa-copy p{max-width:60ch}
+#why-attend .wa-copy p:nth-of-type(2){display:none}
+#why-attend .wa-cards{width:100%;max-width:940px;grid-template-columns:1fr 1fr;gap:26px}
+#why-attend .wa-card{padding:38px 34px 40px}
+#why-attend .wa-link{justify-self:center;margin-top:4px}
+/* chips to 16px (her spec) */
+#why-attend .wa-chip,#why-attend .wa-chip b,#why-attend .wa-chip i{font-size:16px}
+
+/* ===== CARD TREATMENTS — ?cards=1..5 ===== */
+/* shared: give each card a track colour token */
+#why-attend .wa-card:first-child{--ct:#3ED8F0;--ct2:#5B8DEF}
+#why-attend .wa-card:last-child{--ct:#A78BFA;--ct2:#E34FCB}
+
+/* 1 — Track banner: a faded colour wash bleeding down from the top edge */
+.cards1 #why-attend .wa-card{position:relative;overflow:hidden}
+.cards1 #why-attend .wa-card::before{content:"";position:absolute;left:0;right:0;top:0;height:132px;
+  background:linear-gradient(180deg,color-mix(in srgb,var(--ct) 22%,transparent),transparent);
+  pointer-events:none}
+.cards1 #why-attend .wa-chip{position:relative}
+
+/* 2 — Top rule + tinted header block: banner is a solid band with a bright hairline */
+.cards2 #why-attend .wa-card{position:relative;overflow:hidden;padding-top:0}
+.cards2 #why-attend .wa-card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;
+  background:linear-gradient(90deg,var(--ct),var(--ct2))}
+.cards2 #why-attend .wa-chip{margin:0 -34px 26px;padding:20px 34px;width:calc(100% + 68px);
+  background:color-mix(in srgb,var(--ct) 9%,transparent);
+  border-bottom:1px solid color-mix(in srgb,var(--ct) 22%,transparent)}
+
+/* 3 — Gradient rim + inner glow: the card itself glows in its track colour */
+.cards3 #why-attend .wa-card{border:1px solid transparent;
+  background:linear-gradient(#0C1020,#0C1020) padding-box,
+    linear-gradient(150deg,color-mix(in srgb,var(--ct) 60%,transparent),
+      color-mix(in srgb,var(--ct2) 42%,transparent) 55%,rgba(255,255,255,.05)) border-box;
+  box-shadow:inset 0 32px 60px -40px var(--ct),0 22px 50px -28px rgba(0,0,0,.8)}
+
+/* 4 — Numbered editorial: giant ghost day numeral behind the content */
+.cards4 #why-attend .wa-card{position:relative;overflow:hidden}
+.cards4 #why-attend .wa-card::after{position:absolute;right:14px;top:-18px;font-size:150px;font-weight:900;
+  line-height:1;color:color-mix(in srgb,var(--ct) 13%,transparent);pointer-events:none;letter-spacing:-.06em}
+.cards4 #why-attend .wa-card:first-child::after{content:"1"}
+.cards4 #why-attend .wa-card:last-child::after{content:"2"}
+.cards4 #why-attend .wa-card>*{position:relative;z-index:1}
+
+/* 5 — Spotlight: radial track-colour bloom behind the icon */
+.cards5 #why-attend .wa-card{position:relative;overflow:hidden;background:#0A0E1A}
+.cards5 #why-attend .wa-card::before{content:"";position:absolute;left:50%;top:74px;width:340px;height:200px;
+  transform:translateX(-50%);pointer-events:none;
+  background:radial-gradient(50% 50% at 50% 50%,color-mix(in srgb,var(--ct) 26%,transparent),transparent 72%);
+  filter:blur(6px)}
+.cards5 #why-attend .wa-card>*{position:relative;z-index:1}
+#why-attend .wa-card p{max-width:none}
+@media(max-width:900px){.wa-h{font-size:34px}#why-attend .wa-cards{grid-template-columns:1fr;max-width:560px}}
+/* about: the ENTIRE section stays black — quote band inherits instead of repainting */
+#about .quote-band{background:transparent}
+</style><style>/* mobile program section: kill the violet-over-gray hue, match desktop black */
+@media(max-width:900px){#agenda{background:#010205!important}}
+.spec1 .nh-rail{position:relative}
+.spec1 .nh-rail::before{content:"";display:block;position:absolute;left:0;right:0;top:-1px;height:2px;z-index:3;
+  background:linear-gradient(90deg,#22D3EE,#4F7CFF 35%,#8B5CF6 68%,#E34FCB);opacity:.8}
+/* alt-d era treatment: violet bloom lifting off the band + a tinted ground so the rail
+   reads as its own lit section rather than a flat strip */
+.spec1 .nh::after{content:"";position:absolute;left:0;right:0;bottom:0;height:132px;z-index:2;pointer-events:none;
+  background:linear-gradient(0deg,rgba(139,92,246,.22),transparent 85%);display:block}
+.lang-bar{display:none}
+.langs1 .lang-bar,.langs2 .lang-bar{position:relative;z-index:3;display:flex;align-items:center;justify-content:center;
+  gap:16px;padding:10px 0 2px;background:transparent;border-top:0}
+.lang-bar .lb-l{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#3ED8F0}
+.lang-bar .lb-i{width:1px;height:14px;background:rgba(255,255,255,.22)}
+.lang-bar .lb-list{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:rgba(236,240,248,.92)}
+.lang-bar .lb-list b{color:rgba(255,255,255,.3);font-weight:400}
+.lang-bar .lb-list i{font-style:normal;font-size:15px;display:inline;margin-right:-4px}
+.langs2 .lang-bar .lb-list i{display:inline}
+.spec1 .nh-rail{background:
+  linear-gradient(180deg,rgba(139,92,246,.10),rgba(79,124,255,.04) 46%,transparent 78%),#070a13}
+
+/* spec=2 — the gradient-border container: rail floats as a rounded band, border pops */
+/* ===== intl=3: frame-6 strip, plus quiet caps header and the flag pill below ===== */
+.intl3 .nh-rail .site-shell{display:flex;flex-direction:column;align-items:center;padding-block:22px 30px}
+.intl3 .rail-head{display:contents}
+.intl3 .rail-head h2{order:0;margin:0 0 20px;text-align:center;font-size:14px;font-weight:800;
+  letter-spacing:.22em;text-transform:uppercase;color:#3ED8F0}
+.intl3 .rail-head p{display:none}
+.intl3 .event-rail{order:1}
+.intl3 .lang-bar{order:2;display:flex!important;margin:22px auto 0;width:max-content;max-width:100%;
+  padding:11px 26px;border-radius:999px;border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.045);gap:14px}
+.intl3 .lang-bar .lb-i{display:none}
+
+/* ---- languages as its own rail item (?ritem=lang): 4 tiles, flags in the tile ---- */
+.rail4L .nh-rail .er--join{display:flex!important}
+.rail4L .nh-rail .er--join + .vd{display:block!important}
+.rail4L .nh-rail .er--join .v{font-size:15px;letter-spacing:2px}
+
+/* ===== intl=2: the email band design, adapted (eyebrow → items → languages pill) ===== */
+.intl2 .nh-rail .site-shell{display:flex;flex-direction:column;align-items:center;padding-block:30px 36px}
+.intl2 .rail-head{display:contents}
+.greet1 .rail-greet{order:0;display:block;text-align:center;margin:0 0 8px;
+  font-size:38px;font-weight:800;letter-spacing:-.02em;min-height:1.2em;
+  background:linear-gradient(92deg,#22D3EE,#4F7CFF 45%,#A78BFA);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  transition:opacity .45s ease}
+.rail-greet{display:none}
+.greet1 .rail-greet.fade{opacity:0}
+.intl2 .rail-head h2{order:0;margin:0 0 26px;text-align:center;font-size:14px;font-weight:800;
+  letter-spacing:.22em;text-transform:uppercase;color:#3ED8F0}
+.intl2 .rail-head p{display:none}
+.intl2 .event-rail{order:1}
+.intl2 .lang-bar{order:2;display:flex!important;margin:28px auto 0;width:max-content;max-width:100%;
+  padding:12px 28px;border-radius:999px;border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.045);gap:14px}
+.intl2 .lang-bar .lb-i{display:none}
+.intl2 .nh-rail .nh-intl .vd{display:none}
+.intl2 .nh-rail .nh-intl{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;width:100%}
+.intl2 .nh-rail .event-rail.event-rail--beside.nh-intl .er{flex-direction:column;align-items:center;
+  text-align:center;gap:13px;justify-content:flex-start;padding:0}
+.intl2 .nh-rail .nh-intl .ft{display:flex;flex-direction:column;align-items:center;text-align:center}
+.intl2 .nh-rail .event-rail.event-rail--beside.nh-intl .er svg{width:52px;height:52px;top:0}
+.intl2 .nh-rail .event-rail.event-rail--beside.nh-intl .er .er-ic{flex:0 0 52px;width:52px;height:52px}
+.intl2 .nh-rail .nh-intl .er svg rect{display:none}
+.intl2 .nh-rail .nh-intl .k{font-size:17.5px;line-height:1.1}
+.intl2 .nh-rail .nh-intl .v{margin-top:4px}
+.spec2 .nh-rail{background:#05070E;border-top:0;border-bottom:0;padding:26px 0 34px}
+.spec2 .nh-rail .site-shell{
+  border-radius:18px;border:1.5px solid transparent;
+  background:linear-gradient(#0A0E1A,#0A0E1A) padding-box,
+    linear-gradient(90deg,rgba(34,211,238,.75),rgba(79,124,255,.65) 35%,
+      rgba(139,92,246,.7) 68%,rgba(227,79,203,.65)) border-box;
+  box-shadow:0 0 44px -8px rgba(139,92,246,.28),0 18px 50px -20px rgba(0,0,0,.8);
+  padding-inline:44px}
+.spec2.intl1 .nh-rail .site-shell{padding-block:8px 30px}
+
+/* ===== Ben's international band (?intl=1): headline over the rail ===== */
+.rail-head{display:none}
+.intl1 .rail-head{display:block;text-align:center;padding:18px 0 14px}
+.intl1 .rail-head h2{margin:0;font-size:29px;font-weight:700;letter-spacing:-.015em;color:var(--ink,#F2F4FA)}
+.intl1 .rail-head p{display:none}
+.intl1 .nh-rail .site-shell{padding-block:14px 40px}
+.intl1 .nh-inner{padding-block:clamp(48px,5.6vh,74px) clamp(26px,3.4vh,42px)}
 </style></head>
 <body>
 
@@ -2083,7 +2361,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="nh-copy">
       <h1><span class="h1-main">Modern Post<br>in Premiere</span><span class="sub">Color Mode + AI-Assisted<span class="sbrk"> </span>Post-Production</span></h1>
       <div class="nh-rule" aria-hidden="true"></div>
-            <div class="nh-live nh-live--top"><svg class="nh-ld" viewBox="0 0 24 24" aria-hidden="true"><circle class="c" cx="12" cy="12" r="2.3"/><path class="a" d="M9.3 8a6 6 0 0 0 0 8"/><path class="a" d="M14.7 8a6 6 0 0 1 0 8"/><path class="a a2" d="M6.4 5.2a10 10 0 0 0 0 13.6"/><path class="a a2" d="M17.6 5.2a10 10 0 0 1 0 13.6"/></svg><img class="live-pr" src="assets/premiere-tile.svg" alt="" aria-hidden="true"><span class="ll-txt">Live Online Training</span><span class="ll-part" aria-hidden="true"><i class="ll-bar"></i><b>FMC</b><em>&times;</em><b>Adobe</b></span></div>
+            <div class="nh-live nh-live--top"><svg class="nh-ld" viewBox="0 0 24 24" aria-hidden="true"><circle class="c" cx="12" cy="12" r="2.3"/><path class="a" d="M9.3 8a6 6 0 0 0 0 8"/><path class="a" d="M14.7 8a6 6 0 0 1 0 8"/><path class="a a2" d="M6.4 5.2a10 10 0 0 0 0 13.6"/><path class="a a2" d="M17.6 5.2a10 10 0 0 1 0 13.6"/></svg><svg class="nh-gl" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="8.8"/><path d="M3.2 12h17.6M12 3.2c2.5 2.8 3.7 5.8 3.7 8.8s-1.2 6-3.7 8.8c-2.5-2.8-3.7-5.8-3.7-8.8s1.2-6 3.7-8.8z"/></g></svg><img class="live-pr" src="assets/premiere-tile.svg" alt="" aria-hidden="true"><span class="ll-txt">Live Online Training</span><span class="ll-part" aria-hidden="true"><i class="ll-bar"></i><b>FMC</b><em>&times;</em><b>Adobe</b></span></div>
       <div class="nh-date">September 29&ndash;30, 2026</div>
       <div class="nh-meta">9 AM&ndash;5:30 PM ET <i aria-hidden="true">&bull;</i> On Zoom, worldwide</div>
       <div class="nh-meta2"><span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.2V12l3.2 2"/></svg>9 AM&ndash;5:30 PM ET</span><i class="m2d" aria-hidden="true"></i><span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2M12 3.4c2.4 2.8 3.6 5.7 3.6 8.6s-1.2 5.8-3.6 8.6c-2.4-2.8-3.6-5.7-3.6-8.6s1.2-5.8 3.6-8.6z"/></svg>On Zoom, Worldwide</span></div>
@@ -2096,14 +2374,9 @@ html,body{max-width:100%;overflow-x:hidden}
     </div>
     <figure class="nh-ui"><img src="outputs/adobe-color-mode-ui-crop-clean.png" alt="Adobe Premiere Color Mode interface"><img class="pr-badge" src="assets/premiere-tile.svg" alt="" aria-hidden="true"></figure>
   </div>
-  <div class="nh-rail"><div class="site-shell"><div class="event-rail event-rail--beside nh-intl"><div class="er er--join">
+    <div class="nh-rail"><div class="site-shell"><div class="rail-head"><h2>Designed for an International Audience</h2><p>Every session is captioned live, and recordings can be dubbed into your language on request.</p><div class="lang-bar" aria-label="Dubbing languages"><span class="lb-l">Dubbing on request</span><span class="lb-i" aria-hidden="true"></span><span class="lb-list"><i>🇺🇸</i>English<b>&middot;</b><i>🇪🇸</i>Spanish<b>&middot;</b><i>🇫🇷</i>French<b>&middot;</b><i>🇩🇪</i>German<b>&middot;</b><i>🇯🇵</i>Japanese<b>&middot;</b><i>🇵🇹</i>Portuguese<b>&middot;</b><i>🇮🇹</i>Italian</span></div></div><div class="event-rail event-rail--beside nh-intl"><div class="er er--join">
           <span class="er-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="lgA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2AD0F2"/><stop offset="1" stop-color="#4F7CFF"/></linearGradient></defs><g fill="none" stroke="url(#lgA)" stroke-linecap="round"><rect x="2.8" y="2.8" width="18.4" height="18.4" rx="5" stroke-width="1.3"/><g stroke-width="1.5"><circle cx="12" cy="12" r="5.4"/><path d="M6.6 12h10.8M12 6.6c1.8 1.7 2.7 3.5 2.7 5.4s-.9 3.7-2.7 5.4c-1.8-1.7-2.7-3.5-2.7-5.4s.9-3.7 2.7-5.4z"/></g></g></svg></span>
           <div class="ft"><div class="k">Join Live from Anywhere</div><div class="v">Two interactive training days</div></div>
-        </div>
-        <span class="vd" aria-hidden="true"></span>
-        <div class="er er--rep2">
-          <span class="er-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="lgD" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F04ED4"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs><g fill="none" stroke="url(#lgD)"><rect x="2.8" y="2.8" width="18.4" height="18.4" rx="5" stroke-width="1.3"/><path d="M9.9 8.3l6.2 3.7-6.2 3.7z" fill="url(#lgD)" stroke="none"/></g></svg></span>
-          <div class="ft"><div class="k">180-Day Replay<span class="kq"> &middot; your sessions</span></div><div class="v">Your sessions, on your schedule</div></div>
         </div>
         <span class="vd" aria-hidden="true"></span>
         <div class="er er--cc2">
@@ -2115,6 +2388,11 @@ html,body{max-width:100%;overflow-x:hidden}
           <span class="er-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="lgC" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F04ED4"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs><g fill="none" stroke="url(#lgC)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="2.8" width="18.4" height="18.4" rx="5"/><path d="M7 8.2h4.6M9.3 7v1.2M11.2 8.2c-.4 2.1-1.8 3.8-3.9 4.7M7.7 10.2c.7 1.3 1.9 2.3 3.3 2.8" stroke-width="1.5"/><path d="M12.9 17.4l2.2-5.2 2.2 5.2M13.8 15.6h2.6" stroke-width="1.5"/></g></svg></span>
           <div class="ft"><div class="k">Dubbing in 7 Languages<span class="kq"> &middot; on request</span></div><div class="v">On request with recordings</div></div>
         </div>
+        <span class="vd" aria-hidden="true"></span>
+        <div class="er er--rep2">
+          <span class="er-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="lgD" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F04ED4"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs><g fill="none" stroke="url(#lgD)"><rect x="2.8" y="2.8" width="18.4" height="18.4" rx="5" stroke-width="1.3"/><path d="M9.9 8.3l6.2 3.7-6.2 3.7z" fill="url(#lgD)" stroke="none"/></g></svg></span>
+          <div class="ft"><div class="k">180-Day Replay<span class="kq"> &middot; your sessions</span></div><div class="v">Your sessions, on your schedule</div></div>
+        </div>
         </div>
       </div>
       </div></div></div>
@@ -2123,25 +2401,25 @@ html,body{max-width:100%;overflow-x:hidden}
 <section id="why-attend">
   <div class="site-shell wa-grid">
     <div class="wa-copy">
-      <h2 class="wa-h">Two days of practical Premiere training</h2>
-      <p>Get the most from Premiere with practical training straight from the Adobe team and Community Experts.</p>
+      <h2 class="wa-h"><span class="lt">Practical</span> <span class="bd">Premiere Training</span></h2>
+      <p>Two days of learning straight from the Adobe Team and Community Experts.</p>
       <p>Join the training live on Zoom to follow demonstrations and ask questions, with real-time captions in every session. Recordings of the sessions included with your ticket remain available for 180 days, with dubbing in seven languages available on request.</p>
-      <a class="wa-link" href="#agenda">Explore the Program <span aria-hidden="true">&rarr;</span></a>
     </div>
     <div class="wa-cards">
       <div class="wa-card">
         <div class="wa-chip"><b>Day 1</b><span class="mid">&middot;</span><i>Sept 29</i></div>
         <div class="wa-ic wa-wheel" aria-hidden="true"></div>
         <h3>Color Mode<br>in Premiere</h3>
-        <p>Foundations, matching, secondaries, and creative grading.</p>
+        <p>Foundations, matching, secondaries,<br>and creative grading.</p>
       </div>
       <div class="wa-card">
         <div class="wa-chip"><b>Day 2</b><span class="mid">&middot;</span><i>Sept 30</i></div>
         <div class="wa-ic wa-ai" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4.5 13.6 9l4.5 1.6-4.5 1.6L12 16.7l-1.6-4.5-4.5-1.6 4.5-1.6zM18.6 15.4l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8zM6.2 4.2l.6 1.7 1.7.6-1.7.6-.6 1.7-.6-1.7-1.7-.6 1.7-.6z" fill="#CDB4FF" stroke="none"/></svg></div>
         <h3>AI-Assisted<br>Post-Production</h3>
-        <p>Search, editing, audio, Firefly Boards, and more.</p>
+        <p>Search, editing, audio,<br>Firefly Boards, and more.</p>
       </div>
     </div>
+    <a class="wa-link" href="#agenda">Explore the Program <span aria-hidden="true">&rarr;</span></a>
   </div>
 </section>
 
@@ -2151,7 +2429,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="about-top">
       <h2 class="about-h1"><span class="lt">Color correction:</span><br><span class="bd">reimagined for storytellers.</span></h2>
       <figure class="about-media">
-        <img loading="lazy" src="assets/adobe-cm-6.png" alt="Adobe Premiere Color Mode — full before/after split grade with the Color & Contrast, Color Shift, and Detail adjustment panels open">
+        <img loading="lazy" src="assets/adobe-cm-10.png" alt="Style groups and interior scene grading — Premiere Color Mode">
       </figure>
       <p class="about-lead">Adobe Premiere’s new Color Mode is a breakthrough, making color correction accessible and creative for editors who’ve always seen it as too technical.</p>
       <div class="about-film">
@@ -2166,7 +2444,7 @@ html,body{max-width:100%;overflow-x:hidden}
   </div>
   <div class="quote-band reveal">
     <div class="quote-grid">
-      <div class="quote-crop"><img loading="lazy" src="assets/adobe-cm-10.png" alt="Style groups and interior scene grading — Premiere Color Mode"></div>
+      <div class="quote-crop"><img loading="lazy" src="assets/adobe/program/originals/day1-creative-grading.png" alt="Film Color creative grading in Premiere Color Mode — negative and print film stock controls"></div>
       <blockquote class="quote">
         <p>&ldquo;Color is the ultimate storytelling tool.<br>For the first time, editors don&rsquo;t need to be colorists to use it that way.&rdquo;</p>
         <span class="who">— Adobe Color Mode beta user</span>

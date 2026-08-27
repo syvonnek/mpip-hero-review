@@ -1,0 +1,53 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="Cache-Control" content="no-store">
+<title>International emphasis — all options</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&display=swap">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#05070E;color:#F2F4FA;font:15px/1.55 "Source Sans 3",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1500px;margin:0 auto;padding:30px 26px 100px}
+h1{font-size:25px;font-weight:700;letter-spacing:-.02em}
+.sub{color:#98A0B0;font-size:14px;margin-top:6px;max-width:95ch}
+.card{margin-top:40px}
+.lab{display:flex;align-items:baseline;gap:12px;margin-bottom:10px}
+.lab b{font-size:13px;font-weight:800;letter-spacing:.1em;color:#3ED8F0}
+.lab.pick b{color:#CDB4FF}
+.lab .d{font-size:14px;color:#98A0B0}
+.lab a{margin-left:auto;font-size:13px;color:#B583FF;text-decoration:none}
+.stage{position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.11);border-radius:12px;background:#04060d}
+.stage iframe{border:0;display:block;transform-origin:top left;pointer-events:none}
+</style></head><body>
+<div class="wrap">
+<h1>International emphasis — every option, one after the other</h1>
+<p class="sub">All frames are the live page. Frames with motion (greeting cycler) animate for real. 180-Day Replay stays in every version; languages shown with flags where the list appears.</p>
+<div id="cards"></div>
+</div>
+<script>
+var B="hero-lab.html?crop=1&pos=top&t=1&pr=0&bg=cine&ui=frame2&rail=3&eb=ww";
+var F=[
+ ["1 — Header + flag bar + time-zone tile","Band header, flag language bar beneath it, dubbing tile becomes Join in Your Time Zone so nothing repeats.",B+"&intl=1&spec=1&langs=2",1240,0],
+ ["2 — Email design, adapted ★","The already-approved email band: caps cyan eyebrow, centered icon-over-text items (CC bubble / dubbing / clock replay), LANGUAGES pill with flags.",B+"&intl=2&spec=1&langs=2",1300,1],
+ ["3 — Email design + multilingual greeting","Same as 2 plus Ben's Coursera device: Hello → Hola → Bonjour → Hallo → こんにちは → Olá → Ciao cycling in the brand gradient above the eyebrow.",B+"&intl=2&spec=1&langs=2&greet=1",1360,0],
+ ["4 — Header + tiles, no language list","The quietest version: band header over the three tiles (dubbing carries languages by count only).",B+"&intl=1&spec=1",1200,0],
+ ["5 — Gradient-border container","The floating rounded band with the cyan→magenta border (spec=2), header + flag bar inside.",B+"&intl=1&spec=2&langs=2",1260,0],
+ ["6 — Global eyebrow only","No band header at all — the hero's own GLOBAL TRAINING EVENT pill + globe meta carry the message; rail stays a plain strip.",B+"&spec=1",1140,0],
+ ["7 — Clean strip + quiet header + flag pill","Frame 6's flat strip, plus the caps cyan header and the flag language pill below the tiles. The requested hybrid.",B+"&intl=3&spec=1&langs=2",1280,1],
+ ["8 — Languages as its own rail tile","Four tiles: Captions · Join in Your Time Zone · Replay · Available in 7 Languages with flags inside the tile.",B+"&spec=1&ritem=lang",1180,0]
+];
+var W=1440;
+var cards=document.getElementById("cards");
+F.forEach(function(f){
+  var c=document.createElement("div");c.className="card";
+  c.innerHTML='<div class="lab'+(f[4]?' pick':'')+'"><b>'+f[0]+'</b><span class="d">'+f[1]+'</span>'+
+    '<a href="'+f[2]+'" target="_blank">open full page &rarr;</a></div>'+
+    '<div class="stage"><iframe src="'+f[2]+'" width="'+W+'" height="'+f[3]+'"></iframe></div>';
+  cards.appendChild(c);
+});
+function scale(){
+  document.querySelectorAll(".stage").forEach(function(el){
+    var k=Math.min(1,el.clientWidth/W),f=el.querySelector("iframe");
+    f.style.transform="scale("+k+")";el.style.height=(f.height*k)+"px";
+  });
+}
+addEventListener("resize",scale);scale();
+</script>
+</body></html>
