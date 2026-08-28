@@ -1988,6 +1988,7 @@ var lr=p.get('lr'); if(lr)r.classList.add('lr-'+lr);
 if(p.get('ni')==='1')r.classList.add('ni1');
 var e2=p.get('eb2'); if(e2)r.classList.add('eb2-'+e2);
 if(p.get('norv')==='1')r.classList.add('norv');
+if(p.get('mreg')==='2')r.classList.add('mreg2');
 if(p.get('intl')==='8'){document.addEventListener('DOMContentLoaded',function(){
   var rail=document.querySelector('.nh-rail'); if(!rail)return;
   var eb=document.createElement('div'); eb.className='ben-eb';
@@ -2010,7 +2011,7 @@ if(p.get('intl')==='8'){document.addEventListener('DOMContentLoaded',function(){
     '<div class="ben-item"><span class="ben-ic ben-v">'+C+'</span><div class="ben-tx">'+
       '<b>Real-Time Captions</b><span>Built into every live session</span></div></div>'+
     '<div class="ben-item"><span class="ben-ic ben-m">'+R+'</span><div class="ben-tx">'+
-      '<b>Rewatch for 180 Days</b><span>Every session, on your schedule</span></div></div>'+
+      '<b>Replay for 180 Days</b><span>Every session, on your schedule</span></div></div>'+
     '</div>';
 });}
 var it5=p.get('intl');
@@ -2533,6 +2534,33 @@ html,body{max-width:100%;overflow-x:hidden}
   font-size:13px;font-weight:600;color:#E7EBF4}
 .i5-chips .chip i{font-style:normal;margin-right:7px}
 
+/* sticky bar: Program button only when ?mreg=2 */
+.mreg-prog{display:none!important}
+@media(max-width:700px){
+  .mreg2 .mreg-prog{display:inline-flex!important;flex:0 0 auto;height:44px;min-height:44px;
+    padding:0 16px;font-size:14.5px;align-items:center;border-radius:100px}
+  .mreg2 .mreg-bar{gap:9px}
+  .mreg2 .mreg-bar .btn{padding:0 18px}
+  .mreg2 .mreg-sub{display:none}
+}
+
+/* ===== day cards link into the program grid ===== */
+a.wa-card{display:flex;text-decoration:none;color:inherit;cursor:pointer;
+  transition:transform .22s cubic-bezier(.16,1,.3,1),border-color .22s ease,box-shadow .22s ease}
+a.wa-card:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.22)}
+a.wa-card:focus-visible{outline:2px solid #3ED8F0;outline-offset:3px}
+.wa-go{margin-top:16px;display:inline-flex;align-items:center;gap:7px;
+  font-size:14px;font-weight:700;letter-spacing:.01em;color:#3ED8F0;opacity:.9}
+.wa-go b{font-weight:700;transition:transform .22s ease;display:inline-block}
+a.wa-card:hover .wa-go b{transform:translateX(3px)}
+#day1,#day2{scroll-margin-top:76px}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(max-width:900px){
+  .wa-go{margin-top:14px;font-size:15px;opacity:1}
+  #day1,#day2{scroll-margin-top:16px}
+}
+
 /* ===== mobile hero type scale-up (fluid: no new line breaks down to 320px) ===== */
 @media(max-width:900px){
   .nh-copy h1 .h1-main{font-size:clamp(42px,14.2vw,62px);line-height:1.02}
@@ -2589,6 +2617,16 @@ html,body{max-width:100%;overflow-x:hidden}
   .ben-tx b{font-size:18.5px;white-space:normal}
   .ben-tx span{font-size:15px;white-space:normal}
   .ben-flags{font-size:21px;letter-spacing:.2em}
+}
+@media(min-width:601px) and (max-width:900px){
+  .ben-rail{grid-template-columns:repeat(3,1fr);gap:22px}
+  .ben-item{width:auto}
+  .ben-ic{flex:0 0 48px;width:48px;height:48px}
+  .ben-ic svg{width:27px;height:27px}
+  .ben-tx b{font-size:16.5px}
+  .ben-tx span{font-size:13.8px}
+  .ben-flags{font-size:18px;letter-spacing:.16em}
+  .intl8 .ben-eb{font-size:12.5px}
   .intl8 .i5{padding-block:20px}
 }
 
@@ -2813,18 +2851,20 @@ html,body{max-width:100%;overflow-x:hidden}
       <p>Join the training live on Zoom to follow demonstrations and ask questions, with real-time captions in every session. Recordings of the sessions included with your ticket remain available for 180 days, with dubbing in seven languages available on request.</p>
     </div>
     <div class="wa-cards">
-      <div class="wa-card">
+      <a class="wa-card" href="#day1">
         <div class="wa-chip"><b>Day 1</b><span class="mid">&middot;</span><i>Sept 29</i></div>
         <div class="wa-ic wa-wheel" aria-hidden="true"></div>
         <h3>Color Mode<br>in Premiere</h3>
         <p>Foundations, matching, secondaries,<br>and creative grading.</p>
-      </div>
-      <div class="wa-card">
+        <span class="wa-go">See Day 1 sessions <b>&rarr;</b></span>
+      </a>
+      <a class="wa-card" href="#day2">
         <div class="wa-chip"><b>Day 2</b><span class="mid">&middot;</span><i>Sept 30</i></div>
         <div class="wa-ic wa-ai" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4.5 13.6 9l4.5 1.6-4.5 1.6L12 16.7l-1.6-4.5-4.5-1.6 4.5-1.6zM18.6 15.4l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8zM6.2 4.2l.6 1.7 1.7.6-1.7.6-.6 1.7-.6-1.7-1.7-.6 1.7-.6z" fill="#CDB4FF" stroke="none"/></svg></div>
         <h3>AI-Assisted<br>Post-Production</h3>
         <p>Search, editing, audio,<br>Firefly Boards, and more.</p>
-      </div>
+        <span class="wa-go">See Day 2 sessions <b>&rarr;</b></span>
+      </a>
     </div>
     <a class="wa-link" href="#agenda">Explore the Program <span aria-hidden="true">&rarr;</span></a>
   </div>
@@ -3608,6 +3648,7 @@ document.querySelectorAll('[data-count]').forEach(function(el){cio.observe(el)})
 </script>
 <div class="mreg-bar" id="mregBar">
   <div class="mreg-info"><div class="mreg-price">From $99</div><div class="mreg-sub">2 Days &middot; Live Online Training</div></div>
+  <a class="btn-o mreg-prog" href="#agenda">Program</a>
   <a class="btn" href="https://events.zoom.us/ev/AnqUWF2mloHzYgsaptQx0wsb4wWZ83seXLO9Zsdmx0UuPdyxNy3i~AjXUpViZrU7gePZJuMcrI7aF8idMW1htM7Rnn6eJ-UMfTNFM9zMaFJPKWA" target="_blank" rel="noopener noreferrer">Register</a>
 </div>
 <script>
