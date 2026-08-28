@@ -1553,7 +1553,7 @@ nav .navlinks{gap:32px;font-size:16.5px;font-weight:500}
   -webkit-background-clip:text;background-clip:text;color:transparent;width:max-content;max-width:100%}
 .nh-meta{margin-top:12px;font-size:13px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#e8ecf4}
 .nh-meta i{font-style:normal;color:#E34FCB;padding:0 8px}
-.nh .nh-ctas{margin-top:28px}
+.nh .nh-ctas{margin-top:23px}
 @media(max-width:900px){
   .nh-live{font-size:12px;letter-spacing:.2em;margin-bottom:16px}
   .nh-date{font-size:27px}
@@ -1764,7 +1764,7 @@ nav.is-scrolled .navlinks a{color:#b9c0cf}
 .wa-h{font-weight:700;letter-spacing:-.03em}
 </style>
 <style>/* ===== hero breathing room + palette ===== */
-.nh-inner{padding-block:clamp(78px,9vh,124px) clamp(56px,7vh,96px)}
+.nh-inner{padding-block:clamp(70px,8.2vh,112px) clamp(56px,7vh,96px)}
 /* live line: bright cyan reads "live/on-air", not "warning" */
 .nh-live{color:#3ED8F0}
 @supports (color:color(display-p3 1 0 0)){.nh-live{color:color(display-p3 .2 .85 .95)}}
@@ -1789,7 +1789,7 @@ nav.is-scrolled .navlinks a{color:#b9c0cf}
 .s2 .nh h1 .sub{font-size:44px;line-height:1.1}
 .s3 .nh h1 .sub{font-size:50px;line-height:1.08}
 </style>
-<script>(function(){var DEF='pos=top&t=1&pr=0&bg=cine&ui=frame2&rail=3&eb=ww&intl=8&cards=5';var p=new URLSearchParams(location.search.length>1?location.search:DEF),r=document.documentElement;
+<script>(function(){var DEF=new URLSearchParams('pos=top&t=1&pr=0&bg=cine&ui=frame2&rail=3&eb=ww&intl=8&cards=5');var p=new URLSearchParams(location.search);if(!p.has('t')&&!p.has('intl'))DEF.forEach(function(v,k){if(!p.has(k))p.set(k,v);});var r=document.documentElement;
 ['t','s'].forEach(function(k){var v=p.get(k); if(v) r.classList.add(k+v);});})();</script>
 
 <style>/* ===== LAB HARNESS (hero-lab only) ===== */
@@ -1954,7 +1954,7 @@ nav.is-scrolled .navlinks a{color:#b9c0cf}
   .s3 .nh h1 .sub{font-size:24px;line-height:1.18;letter-spacing:-.01em}
 }
 </style>
-<script>(function(){var DEF='pos=top&t=1&pr=0&bg=cine&ui=frame2&rail=3&eb=ww&intl=8&cards=5';var p=new URLSearchParams(location.search.length>1?location.search:DEF),r=document.documentElement;
+<script>(function(){var DEF=new URLSearchParams('pos=top&t=1&pr=0&bg=cine&ui=frame2&rail=3&eb=ww&intl=8&cards=5');var p=new URLSearchParams(location.search);if(!p.has('t')&&!p.has('intl'))DEF.forEach(function(v,k){if(!p.has(k))p.set(k,v);});var r=document.documentElement;
 if(p.get('p')==='1')r.classList.add('p1');
 if(p.get('crop')==='1')r.classList.add('crop');
 if(p.get('crop')==='2')r.classList.add('crop2');
@@ -2001,15 +2001,20 @@ if(p.get('intl')==='8'){document.addEventListener('DOMContentLoaded',function(){
     '<path d="M10.7 9.9a2.4 2.4 0 1 0 0 4.2M16.8 9.9a2.4 2.4 0 1 0 0 4.2"/></g></svg>';
   var R='<svg viewBox="0 0 24 24"><g fill="none" stroke="#F04ED4" stroke-width="1.6" stroke-linecap="round">'+
     '<circle cx="12" cy="12" r="8.6"/><path d="M10.2 8.7l5.4 3.3-5.4 3.3z" fill="#F04ED4" stroke="none"/></g></svg>';
+  var J='<svg viewBox="0 0 24 24"><g fill="none" stroke="#3ED8F0" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2M12 3.4c2.4 2.8 3.6 5.7 3.6 8.6s-1.2 5.8-3.6 8.6c-2.4-2.8-3.6-5.7-3.6-8.6s1.2-5.8 3.6-8.6z"/></g></svg>';
+  var four=p.get('ben')==='4';
   var i5=document.querySelector('.i5'); if(!i5)return;
   var band=document.createElement('div'); band.className='ben-band';
   rail.insertBefore(band,i5); band.appendChild(i5);
   rail.insertBefore(eb,band);
-  i5.innerHTML='<div class="ben-rail">'+
+  var joinItem=four?'<div class="ben-item"><span class="ben-ic">'+J+'</span><div class="ben-tx">'+
+      '<b>Join Live from Anywhere</b><span>Two interactive training days</span></div></div>':'';
+  if(four)document.documentElement.classList.add('ben4');
+  i5.innerHTML='<div class="ben-rail">'+joinItem+
     '<div class="ben-item"><span class="ben-ic">'+G+'</span><div class="ben-tx">'+
       '<b>Available in 7 Languages</b><span class="ben-flags">\uD83C\uDDFA\uD83C\uDDF8 \uD83C\uDDEA\uD83C\uDDF8 \uD83C\uDDEB\uD83C\uDDF7 \uD83C\uDDE9\uD83C\uDDEA \uD83C\uDDEF\uD83C\uDDF5 \uD83C\uDDF5\uD83C\uDDF9 \uD83C\uDDEE\uD83C\uDDF9</span></div></div>'+
     '<div class="ben-item"><span class="ben-ic ben-v">'+C+'</span><div class="ben-tx">'+
-      '<b>Real-Time Captions</b><span>Built into every live session</span></div></div>'+
+      '<b>Live Captions in Your Language</b><span>In every session, via Zoom</span></div></div>'+
     '<div class="ben-item"><span class="ben-ic ben-m">'+R+'</span><div class="ben-tx">'+
       '<b>Replay for 180 Days</b><span>Every session, on your schedule</span></div></div>'+
     '</div>';
@@ -2144,7 +2149,7 @@ if(p.get('eb')==='ww'){r.classList.add('eb-ww');
     var t=document.querySelector('.ll-txt'); if(t)t.textContent='Global Training Event';
     // meta pairs with the ww eyebrow: "Live on Zoom" + on-air mark (worldwide moved up, live restored)
     var m=document.querySelector('.nh-meta2 span:last-of-type');
-    if(m){m.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="#5B8DEF" stroke-width="1.7" stroke-linecap="round"><path d="M9.3 8a6 6 0 0 0 0 8M14.7 8a6 6 0 0 1 0 8"/><path d="M6.4 5.2a10 10 0 0 0 0 13.6M17.6 5.2a10 10 0 0 1 0 13.6" opacity=".55"/></g><circle cx="12" cy="12" r="2.3" fill="#5B8DEF"/></svg>Live Online';}
+    if(m){m.innerHTML='<svg class="m2-live" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="#8FB6FF" stroke-width="1.9" stroke-linecap="round"><path d="M9.3 8a6 6 0 0 0 0 8M14.7 8a6 6 0 0 1 0 8"/><path d="M6.4 5.2a10 10 0 0 0 0 13.6M17.6 5.2a10 10 0 0 1 0 13.6" opacity=".82"/></g><circle cx="12" cy="12" r="2.3" fill="#8FB6FF"/></svg>Live Online';}
   });}
 if(p.get('nav')==='center')r.classList.add('nav-center');
 var bg=p.get('bg');
@@ -2290,7 +2295,8 @@ html,body{max-width:100%;overflow-x:hidden}
 .wa-h{font-size:54px;letter-spacing:-.03em;line-height:1.02}
 .wa-h .lt{font-weight:300}
 .wa-h .bd{font-weight:600}
-#why-attend .wa-copy p{max-width:60ch}
+#why-attend .wa-copy p{max-width:none}
+@media(max-width:900px){#why-attend .wa-copy p{max-width:34ch}}
 #why-attend .wa-copy p:nth-of-type(2){display:none}
 #why-attend .wa-cards{width:100%;max-width:940px;grid-template-columns:1fr 1fr;gap:26px}
 #why-attend .wa-card{padding:38px 34px 40px}
@@ -2534,6 +2540,8 @@ html,body{max-width:100%;overflow-x:hidden}
   font-size:13px;font-weight:600;color:#E7EBF4}
 .i5-chips .chip i{font-style:normal;margin-right:7px}
 
+.nh-meta2 .m2-live{position:relative;top:2px;overflow:visible}
+
 /* sticky bar: Program button only when ?mreg=2 */
 .mreg-prog{display:none!important}
 @media(max-width:700px){
@@ -2592,42 +2600,44 @@ html{scroll-behavior:smooth}
   background:linear-gradient(90deg,#22D3EE,#4F7CFF 35%,#8B5CF6 68%,#E34FCB)}
 .intl8 .nh-rail .site-shell{display:none}
 .ben-rail{display:grid;grid-template-columns:1.1fr 1fr 1fr;align-items:center;gap:34px}
+.ben4 .ben-rail{grid-template-columns:1.05fr 1fr 1fr 1fr;gap:26px}
+.ben4 .ben-tx b{font-size:17.5px}
+.ben4 .ben-tx span{font-size:14.5px}
+.ben4 .ben-ic svg{width:33px;height:33px}
+.ben4 .ben-flags{font-size:17px;letter-spacing:.22em}
 .ben-item{display:flex;align-items:center;gap:15px;position:relative;min-width:0}
-.ben-ic{flex:0 0 46px;width:46px;height:46px;border-radius:13px;display:flex;align-items:center;
-  justify-content:center;border:1.6px solid rgba(62,216,240,.55);background:rgba(62,216,240,.08);
-  box-shadow:0 0 20px -7px rgba(62,216,240,.6)}
-.ben-ic svg{width:26px;height:26px}
-.ben-ic.ben-v{border-color:rgba(167,139,250,.55);background:rgba(167,139,250,.09);
-  box-shadow:0 0 20px -7px rgba(167,139,250,.6)}
-.ben-ic.ben-m{border-color:rgba(240,78,212,.55);background:rgba(240,78,212,.08);
-  box-shadow:0 0 20px -7px rgba(240,78,212,.55)}
-.ben-tx{display:flex;flex-direction:column;gap:4px;min-width:0}
-.ben-tx b{font-size:18px;font-weight:700;letter-spacing:-.01em;color:#F5F7FB;white-space:nowrap}
-.ben-tx span{font-size:14.5px;color:#98A0B4;white-space:nowrap}
-.ben-flags{font-size:17px;letter-spacing:.16em;line-height:1}
+.ben-ic{flex:0 0 auto;width:auto;height:auto;border:0;background:none;box-shadow:none;
+  display:flex;align-items:center;justify-content:center}
+.ben-ic svg{width:38px;height:38px;filter:drop-shadow(0 0 14px rgba(62,216,240,.32))}
+.ben-ic.ben-v svg{filter:drop-shadow(0 0 14px rgba(167,139,250,.32))}
+.ben-ic.ben-m svg{filter:drop-shadow(0 0 14px rgba(240,78,212,.3))}
+.ben-tx{display:flex;flex-direction:column;gap:1px;min-width:0}
+.ben-tx b{font-size:19.5px;font-weight:700;letter-spacing:-.01em;color:#F5F7FB;white-space:nowrap;line-height:1.28}
+.ben-tx span{font-size:16.5px;color:#98A0B4;white-space:nowrap;line-height:1.3}
+.ben-flags{font-size:20px;letter-spacing:.34em;line-height:1.15;margin-top:3px}
 @media(max-width:1180px){
-  .ben-tx b{font-size:16.5px}.ben-tx span{font-size:13.4px}
-  .ben-rail{gap:24px}.ben-ic{flex-basis:42px;width:42px;height:42px}
+  .ben-tx b{font-size:17.5px}.ben-tx span{font-size:15px}
+  .ben-ic svg{width:34px;height:34px}
+  .ben-flags{font-size:18px;letter-spacing:.26em}
+  .ben-rail{gap:24px}
 }
 @media(max-width:900px){
   .intl8 .ben-eb{font-size:clamp(11.5px,3.5vw,15px);letter-spacing:.16em;padding:20px 16px 17px}
   .ben-rail{grid-template-columns:1fr;gap:30px;justify-items:center}
   .ben-item{flex-direction:column;align-items:center;text-align:center;gap:11px;width:100%}
-  .ben-ic{flex:0 0 54px;width:54px;height:54px;border-radius:16px}
-  .ben-ic svg{width:31px;height:31px}
-  .ben-tx{align-items:center;gap:5px}
-  .ben-tx b{font-size:18.5px;white-space:normal}
-  .ben-tx span{font-size:15px;white-space:normal}
-  .ben-flags{font-size:21px;letter-spacing:.2em}
+  .ben-ic svg{width:44px;height:44px}
+  .ben-tx{align-items:center;gap:2px}
+  .ben-tx b{font-size:20px;white-space:normal}
+  .ben-tx span{font-size:16.5px;white-space:normal}
+  .ben-flags{font-size:22px;letter-spacing:.3em}
 }
 @media(min-width:601px) and (max-width:900px){
   .ben-rail{grid-template-columns:repeat(3,1fr);gap:22px}
   .ben-item{width:auto}
-  .ben-ic{flex:0 0 48px;width:48px;height:48px}
-  .ben-ic svg{width:27px;height:27px}
-  .ben-tx b{font-size:16.5px}
-  .ben-tx span{font-size:13.8px}
-  .ben-flags{font-size:18px;letter-spacing:.16em}
+  .ben-ic svg{width:34px;height:34px}
+  .ben-tx b{font-size:17px}
+  .ben-tx span{font-size:14.5px}
+  .ben-flags{font-size:18px;letter-spacing:.22em}
   .intl8 .ben-eb{font-size:15px}
   .intl8 .i5{padding-block:20px}
 }
@@ -2849,7 +2859,7 @@ html{scroll-behavior:smooth}
   <div class="site-shell wa-grid">
     <div class="wa-copy">
       <h2 class="wa-h"><span class="lt">Practical</span> <span class="bd">Premiere Training</span></h2>
-      <p>Two days of learning straight from the Adobe Team <br class="wa-br">and Community Experts.</p>
+      <p>Two days of learning straight from the Adobe Team and Community Experts.</p>
       <p>Join the training live on Zoom to follow demonstrations and ask questions, with real-time captions in every session. Recordings of the sessions included with your ticket remain available for 180 days, with dubbing in seven languages available on request.</p>
     </div>
     <div class="wa-cards">
