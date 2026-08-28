@@ -1989,6 +1989,51 @@ if(p.get('ni')==='1')r.classList.add('ni1');
 var e2=p.get('eb2'); if(e2)r.classList.add('eb2-'+e2);
 if(p.get('norv')==='1')r.classList.add('norv');
 if(p.get('mreg')==='2')r.classList.add('mreg2');
+if(p.get('chat')==='1'){r.classList.add('chatv');
+document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){
+  // 1) band: recordings tile gains a clarifying sub above the flags
+  var tiles=document.querySelectorAll('.ben-item');
+  tiles.forEach(function(t){var b=t.querySelector('.ben-tx b');
+    if(b&&b.textContent.indexOf('Recordings')===0){
+      var fl=t.querySelector('.ben-flags');
+      var sp=document.createElement('span'); sp.textContent='Select yours at registration';
+      var tx=t.querySelector('.ben-tx'); tx.insertBefore(sp,fl);
+      if(fl){fl.setAttribute('role','img');
+        fl.setAttribute('aria-label','English, Spanish, French, German, Japanese, Portuguese, Italian');}
+    }});
+  // 2) new International Access section after the day cards
+  var wa=document.querySelector('#why-attend'); if(!wa)return;
+  var sec=document.createElement('section'); sec.id='intl-access';
+  sec.innerHTML='<div class="shell">'+
+    '<div class="ia-head"><div class="ia-eb">International Access</div>'+
+    '<h2>Language access, live and on replay.</h2></div>'+
+    '<div class="ia-steps">'+
+    '<div class="ia-step"><i>1</i><h3>At registration</h3><p>Choose English, Spanish, French, German, Japanese, Portuguese, or Italian as your recording language.</p></div>'+
+    '<div class="ia-step"><i>2</i><h3>During the live event</h3><p>Turn on translated captions in Zoom and choose from 35+ supported languages. Your caption choice applies only to your own screen.</p></div>'+
+    '<div class="ia-step"><i>3</i><h3>After the event</h3><p>Receive your recordings in the language you selected. Access stays open for 180 days.</p></div>'+
+    '</div></div>';
+  wa.parentNode.insertBefore(sec,wa.nextSibling);
+  // 3) pricing bullets per proposal
+  document.querySelectorAll('.ptier .inc').forEach(function(ul){
+    ul.querySelectorAll('li').forEach(function(li){
+      if(li.textContent.indexOf("180-day access to that day")>-1)li.textContent="180-day access to your selected day's recording";
+      if(li.textContent.indexOf('dubbed in your choice')>-1)li.textContent='Recording language selected at registration';
+    });});
+  // 4) hide the now-redundant explainer cells in the old section
+  var g=document.querySelector('#global-band .glob'); if(g)g.style.display='none';
+  // 5) discreet regional-times anchor under the hero meta
+  var m2=document.querySelector('.nh-meta2');
+  if(m2){var a=document.createElement('a'); a.className='nh-tz'; a.href='#agenda';
+    a.textContent='See regional start times \u2192'; m2.parentNode.insertBefore(a,m2.nextSibling);}
+},0);});}
+var gh=p.get('gh');
+if(gh){document.addEventListener('DOMContentLoaded',function(){
+  var h=document.querySelector('#global-band .t2'); if(!h)return;
+  var GH={a:'Built for a global audience.',
+          b:'Join from anywhere. Learn in your language.',
+          c:'One event. Every language, every time zone.'};
+  if(GH[gh])h.textContent=GH[gh];
+});}
 if(p.get('intl')==='8'){document.addEventListener('DOMContentLoaded',function(){
   var rail=document.querySelector('.nh-rail'); if(!rail)return;
   var eb=document.createElement('div'); eb.className='ben-eb';
@@ -2010,7 +2055,7 @@ if(p.get('intl')==='8'){document.addEventListener('DOMContentLoaded',function(){
   var IC_G='<svg viewBox="0 0 24 24"><g fill="none" stroke="#4FC3F7" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8.8"/><path d="M3.2 12h17.6"/><path d="M4.6 7.3c2 1.1 4.6 1.7 7.4 1.7s5.4-.6 7.4-1.7M4.6 16.7c2-1.1 4.6-1.7 7.4-1.7s5.4.6 7.4 1.7"/><path d="M12 3.2c3.3 2.7 3.3 14.9 0 17.6M12 3.2c-3.3 2.7-3.3 14.9 0 17.6"/></g></svg>';
   var IC_CC='<svg viewBox="0 0 24 24"><g fill="none" stroke="#7D8CF8" stroke-width="1.5" stroke-linejoin="round"><path d="M6.4 4.6h11.2a3 3 0 0 1 3 3v6.6a3 3 0 0 1-3 3H11l-3.8 3.2v-3.2H6.4a3 3 0 0 1-3-3V7.6a3 3 0 0 1 3-3z"/></g><text x="12" y="13.5" text-anchor="middle" font-size="6.8" font-weight="800" fill="#7D8CF8" font-family="inherit">CC</text></svg>';
   var IC_SP='<svg viewBox="0 0 24 24"><g fill="none" stroke="#A06CF5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.6v4.8h3.1l4.5 3.8V5.8L7.1 9.6z"/><path d="M14.6 9.4a4.1 4.1 0 0 1 0 5.2"/><path d="M17 7a7.6 7.6 0 0 1 0 10"/></g></svg>';
-  var IC_RP='<svg viewBox="0 0 24 24"><g fill="none" stroke="#F04E9E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 12a8.6 8.6 0 1 1-2.4-5.9"/><path d="M18.6 2.9l-.3 3.5 3.5-.3"/></g><path d="M10.4 8.9l4.9 3.1-4.9 3.1z" fill="#F04E9E"/></svg>';
+  var IC_RP='<svg viewBox="0 0 24 24"><g fill="none" stroke="#F04E9E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 12a8.6 8.6 0 1 1-3.2-6.7"/><path d="M17.4 1.9h3.6v3.6"/></g><path d="M10.5 8.8l5.1 3.2-5.1 3.2z" fill="#F04E9E"/></svg>';
   document.documentElement.classList.add('ben-chat');
   var FL='\uD83C\uDDFA\uD83C\uDDF8 \uD83C\uDDEA\uD83C\uDDF8 \uD83C\uDDEB\uD83C\uDDF7 \uD83C\uDDE9\uD83C\uDDEA \uD83C\uDDEF\uD83C\uDDF5 \uD83C\uDDF5\uD83C\uDDF9 \uD83C\uDDEE\uD83C\uDDF9';
   var joinTile=four?'<div class="ben-item"><span class="ben-ic">'+IC_G+'</span><div class="ben-tx">'+
@@ -2548,6 +2593,37 @@ html,body{max-width:100%;overflow-x:hidden}
 
 .nh-meta2 .m2-live{position:relative;top:0.5px;overflow:visible}
 
+/* ===== ?chat=1 variant: International Access section + extras ===== */
+#intl-access{background:#05070E;padding:74px 0 78px;border-top:1px solid rgba(255,255,255,.06)}
+#intl-access .ia-head{text-align:center;max-width:760px;margin:0 auto 46px}
+#intl-access .ia-eb{font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#3ED8F0}
+#intl-access h2{margin:14px 0 0;font-size:clamp(30px,3.4vw,42px);font-weight:650;letter-spacing:-.02em;color:#F2F4FA}
+.ia-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;max-width:1140px;margin:0 auto}
+.ia-step{border:1px solid rgba(255,255,255,.10);border-radius:14px;padding:28px 26px;background:rgba(255,255,255,.02)}
+.ia-step i{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;
+  font-style:normal;font-weight:800;font-size:15px;color:#0A0E1A;
+  background:linear-gradient(120deg,#22D3EE,#4F7CFF 55%,#A78BFA)}
+.ia-step h3{margin:16px 0 0;font-size:19px;font-weight:700;color:#F2F4FA}
+.ia-step p{margin:9px 0 0;font-size:15.5px;line-height:1.55;color:#aab2c4}
+@media(max-width:900px){.ia-steps{grid-template-columns:1fr;max-width:560px}
+  #intl-access{padding:56px 0 60px}}
+.chatv .ben-tx span+.ben-flags{margin-top:2px}
+.nh-tz{display:none}
+.chatv .nh-tz{display:inline-block;margin-top:10px;font-size:14px;color:#8FB6FF;text-decoration:none}
+.chatv .nh-tz:hover{color:#BCD4FF}
+
+/* day cards: whole card is the link; no explicit cue line; tighter icon spacing */
+#why-attend .wa-go{display:none}
+.cards5 #why-attend .wa-chip{margin-bottom:12px}
+.cards5 #why-attend .wa-ic{margin-top:12px}
+/* section 2 atmosphere: soft color wash so the block is not flat black */
+#why-attend{position:relative}
+#why-attend::before{content:"";position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(760px 420px at 18% 18%,rgba(34,211,238,.10),transparent 62%),
+  radial-gradient(820px 460px at 84% 78%,rgba(139,92,246,.13),transparent 64%),
+  radial-gradient(600px 320px at 60% 100%,rgba(227,79,203,.07),transparent 70%)}
+#why-attend>*{position:relative}
+
 /* sticky bar: Program button only when ?mreg=2 */
 .mreg-prog{display:none!important}
 @media(max-width:700px){
@@ -2599,7 +2675,7 @@ html{scroll-behavior:smooth}
 }
 
 /* ===== Ben's band (?intl=8) — centred eyebrow over a full-bleed 3-item rail ===== */
-.intl8 .i5{display:block;box-sizing:border-box;width:100%;max-width:1400px;
+.intl8 .i5{display:block;box-sizing:border-box;width:100%;max-width:var(--shell-max);
   margin-inline:auto;padding:20px var(--shell-pad)}
 .intl8 .nh-rail .event-rail,.intl8 .rail-head,.intl8 .nh-rail .lang-bar{display:none!important}
 .ben-eb{display:none}
@@ -2617,7 +2693,7 @@ html{scroll-behavior:smooth}
   background:linear-gradient(90deg,#22D3EE,#4F7CFF 35%,#8B5CF6 68%,#E34FCB)}
 .intl8 .nh-rail .site-shell{display:none}
 .ben-rail{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;align-items:center;gap:0}
-.ben-chat .ben-item{padding-inline:24px}
+.ben-chat .ben-item{padding-inline:0}
 .ben-chat .ben-tx b{font-size:18px}
 .ben-chat .ben-tx span{font-size:14.5px}
 .ben-chat .ben-ic svg{width:46px;height:46px}
@@ -2635,7 +2711,7 @@ html{scroll-behavior:smooth}
   .ben-chat .ben-rail{grid-template-columns:1fr;row-gap:28px}
 }
 .ben-chat .ben-item:first-child{padding-left:0}
-.ben-chat .ben-item+.ben-item{border-left:1px solid rgba(255,255,255,.14)}
+
 .ben-chat .ben-ic svg{filter:none}
 @media(max-width:1140px){
   .ben-rail{grid-template-columns:1fr 1fr}
