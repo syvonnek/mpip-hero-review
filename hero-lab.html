@@ -2007,17 +2007,20 @@ if(p.get('intl')==='8'){document.addEventListener('DOMContentLoaded',function(){
   var band=document.createElement('div'); band.className='ben-band';
   rail.insertBefore(band,i5); band.appendChild(i5);
   rail.insertBefore(eb,band);
-  var joinItem=four?'<div class="ben-item ben-join"><span class="ben-ic">'+J+'</span><div class="ben-tx">'+
-      '<b>Join Live from Anywhere</b><span>Two interactive training days</span></div></div>':'';
-  if(four)document.documentElement.classList.add('ben4');
-  var T='<svg viewBox="0 0 24 24"><g fill="none" stroke="#3ED8F0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h7M7.5 5.4V7M10.5 7c-.5 2.8-2.4 5-5.1 6.2M5.7 9.9c.9 1.7 2.4 3 4.3 3.6"/><path d="M12.4 19l3-7 3 7M13.6 16.5h3.6"/></g></svg>';
-  i5.innerHTML='<div class="ben-rail">'+joinItem+
-    '<div class="ben-item"><span class="ben-ic ben-v">'+C+'</span><div class="ben-tx">'+
-      '<b>Live Captions in 35+ Languages</b><span>In every session, via Zoom</span></div></div>'+
-    '<div class="ben-item"><span class="ben-ic">'+T+'</span><div class="ben-tx">'+
-      '<b>Recordings in 7 Languages</b><span class="ben-flags">\uD83C\uDDFA\uD83C\uDDF8 \uD83C\uDDEA\uD83C\uDDF8 \uD83C\uDDEB\uD83C\uDDF7 \uD83C\uDDE9\uD83C\uDDEA \uD83C\uDDEF\uD83C\uDDF5 \uD83C\uDDF5\uD83C\uDDF9 \uD83C\uDDEE\uD83C\uDDF9</span></div></div>'+
-    '<div class="ben-item"><span class="ben-ic ben-m">'+R+'</span><div class="ben-tx">'+
-      '<b>Replay for 180 Days</b><span>Watch on your own schedule</span></div></div>'+
+  var IC_G='<svg viewBox="0 0 24 24"><g fill="none" stroke="#4FC3F7" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8.8"/><path d="M3.2 12h17.6"/><path d="M4.6 7.3c2 1.1 4.6 1.7 7.4 1.7s5.4-.6 7.4-1.7M4.6 16.7c2-1.1 4.6-1.7 7.4-1.7s5.4.6 7.4 1.7"/><path d="M12 3.2c3.3 2.7 3.3 14.9 0 17.6M12 3.2c-3.3 2.7-3.3 14.9 0 17.6"/></g></svg>';
+  var IC_CC='<svg viewBox="0 0 24 24"><g fill="none" stroke="#7D8CF8" stroke-width="1.5" stroke-linejoin="round"><path d="M6.4 4.6h11.2a3 3 0 0 1 3 3v6.6a3 3 0 0 1-3 3H11l-3.8 3.2v-3.2H6.4a3 3 0 0 1-3-3V7.6a3 3 0 0 1 3-3z"/></g><text x="12" y="13.5" text-anchor="middle" font-size="6.8" font-weight="800" fill="#7D8CF8" font-family="inherit">CC</text></svg>';
+  var IC_SP='<svg viewBox="0 0 24 24"><g fill="none" stroke="#A06CF5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.6v4.8h3.1l4.5 3.8V5.8L7.1 9.6z"/><path d="M14.6 9.4a4.1 4.1 0 0 1 0 5.2"/><path d="M17 7a7.6 7.6 0 0 1 0 10"/></g></svg>';
+  var IC_RP='<svg viewBox="0 0 24 24"><g fill="none" stroke="#F04E9E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 12a8.6 8.6 0 1 1-2.4-5.9"/><path d="M18.6 2.9l-.3 3.5 3.5-.3"/></g><path d="M10.4 8.9l4.9 3.1-4.9 3.1z" fill="#F04E9E"/></svg>';
+  document.documentElement.classList.add('ben-chat');
+  i5.innerHTML='<div class="ben-rail">'+
+    '<div class="ben-item"><span class="ben-ic">'+IC_G+'</span><div class="ben-tx">'+
+      '<b>Join from Anywhere</b><span>Two live training days on Zoom</span></div></div>'+
+    '<div class="ben-item"><span class="ben-ic">'+IC_CC+'</span><div class="ben-tx">'+
+      '<b>Translated Live Captions</b><span>Choose your caption language</span></div></div>'+
+    '<div class="ben-item"><span class="ben-ic">'+IC_SP+'</span><div class="ben-tx">'+
+      '<b>Dubbed Recordings</b><span>7 languages, selected at registration</span></div></div>'+
+    '<div class="ben-item"><span class="ben-ic">'+IC_RP+'</span><div class="ben-tx">'+
+      '<b>180-Day Replay</b><span>Watch on your own schedule</span></div></div>'+
     '</div>';
 });}
 var it5=p.get('intl');
@@ -2147,10 +2150,10 @@ document.addEventListener('DOMContentLoaded',function(){
 });
 if(p.get('eb')==='ww'){r.classList.add('eb-ww');
   document.addEventListener('DOMContentLoaded',function(){
-    var t=document.querySelector('.ll-txt'); if(t)t.textContent='Global Training Event';
+    var t=document.querySelector('.ll-txt'); if(t)t.textContent='Live Online \u2022 Worldwide';
     // meta pairs with the ww eyebrow: "Live on Zoom" + on-air mark (worldwide moved up, live restored)
     var m=document.querySelector('.nh-meta2 span:last-of-type');
-    if(m){m.innerHTML='<svg class="m2-live" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="#8FB6FF" stroke-width="1.9" stroke-linecap="round"><path d="M9.3 8a6 6 0 0 0 0 8M14.7 8a6 6 0 0 1 0 8"/><path d="M6.4 5.2a10 10 0 0 0 0 13.6M17.6 5.2a10 10 0 0 1 0 13.6" opacity=".82"/></g><circle cx="12" cy="12" r="2.3" fill="#8FB6FF"/></svg>Live Online';}
+    if(m){m.innerHTML='<svg class="m2-live" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="#8FB6FF" stroke-width="1.9" stroke-linecap="round"><path d="M9.3 8a6 6 0 0 0 0 8M14.7 8a6 6 0 0 1 0 8"/><path d="M6.4 5.2a10 10 0 0 0 0 13.6M17.6 5.2a10 10 0 0 1 0 13.6" opacity=".82"/></g><circle cx="12" cy="12" r="2.3" fill="#8FB6FF"/></svg>Live on Zoom';}
   });}
 if(p.get('nav')==='center')r.classList.add('nav-center');
 var bg=p.get('bg');
@@ -2594,7 +2597,7 @@ html{scroll-behavior:smooth}
 }
 
 /* ===== Ben's band (?intl=8) — centred eyebrow over a full-bleed 3-item rail ===== */
-.intl8 .i5{display:block;box-sizing:border-box;width:100%;max-width:var(--shell-max);
+.intl8 .i5{display:block;box-sizing:border-box;width:100%;max-width:1400px;
   margin-inline:auto;padding:20px var(--shell-pad)}
 .intl8 .nh-rail .event-rail,.intl8 .rail-head,.intl8 .nh-rail .lang-bar{display:none!important}
 .ben-eb{display:none}
@@ -2611,7 +2614,33 @@ html{scroll-behavior:smooth}
 .ben-band::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;
   background:linear-gradient(90deg,#22D3EE,#4F7CFF 35%,#8B5CF6 68%,#E34FCB)}
 .intl8 .nh-rail .site-shell{display:none}
-.ben-rail{display:grid;grid-template-columns:1.1fr 1fr 1fr;align-items:center;gap:34px}
+.ben-rail{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;align-items:center;gap:0}
+.ben-chat .ben-item{padding-inline:24px}
+.ben-chat .ben-tx b{font-size:18px}
+.ben-chat .ben-tx span{font-size:14.5px}
+.ben-chat .ben-ic svg{width:46px;height:46px}
+.ben-chat .ben-rail{grid-template-columns:auto auto auto auto;justify-content:space-between}
+@media(max-width:1140px){
+  .ben-chat .ben-rail{grid-template-columns:1fr 1fr;justify-content:stretch;row-gap:26px}
+  .ben-chat .ben-item{flex-direction:column;align-items:center;text-align:center;gap:9px;
+    padding:0 18px;border-left:0!important}
+  .ben-chat .ben-tx{align-items:center}
+  .ben-chat .ben-tx b{white-space:normal;text-wrap:balance;max-width:11ch;line-height:1.25}
+}
+@media(max-width:600px){
+  .ben-chat .ben-rail{grid-template-columns:1fr;row-gap:28px}
+}
+.ben-chat .ben-item:first-child{padding-left:0}
+.ben-chat .ben-item+.ben-item{border-left:1px solid rgba(255,255,255,.14)}
+.ben-chat .ben-ic svg{filter:none}
+@media(max-width:1140px){
+  .ben-rail{grid-template-columns:1fr 1fr}
+  .ben-chat .ben-item{padding:10px 22px}
+  .ben-chat .ben-item:nth-child(odd){padding-left:0;border-left:0}
+}
+@media(max-width:600px){
+  .ben-chat .ben-item{border-left:0!important;padding:0}
+}
 .ben4 .ben-rail{grid-template-columns:repeat(4,auto);justify-content:space-between;gap:20px}
 @media(max-width:1140px){
   .ben-join{display:none!important}
