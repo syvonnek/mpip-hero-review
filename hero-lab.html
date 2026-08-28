@@ -2012,13 +2012,15 @@ if(p.get('intl')==='8'){document.addEventListener('DOMContentLoaded',function(){
   var IC_SP='<svg viewBox="0 0 24 24"><g fill="none" stroke="#A06CF5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.6v4.8h3.1l4.5 3.8V5.8L7.1 9.6z"/><path d="M14.6 9.4a4.1 4.1 0 0 1 0 5.2"/><path d="M17 7a7.6 7.6 0 0 1 0 10"/></g></svg>';
   var IC_RP='<svg viewBox="0 0 24 24"><g fill="none" stroke="#F04E9E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 12a8.6 8.6 0 1 1-2.4-5.9"/><path d="M18.6 2.9l-.3 3.5 3.5-.3"/></g><path d="M10.4 8.9l4.9 3.1-4.9 3.1z" fill="#F04E9E"/></svg>';
   document.documentElement.classList.add('ben-chat');
-  i5.innerHTML='<div class="ben-rail">'+
-    '<div class="ben-item"><span class="ben-ic">'+IC_G+'</span><div class="ben-tx">'+
-      '<b>Join from Anywhere</b><span>Two live training days on Zoom</span></div></div>'+
+  var FL='\uD83C\uDDFA\uD83C\uDDF8 \uD83C\uDDEA\uD83C\uDDF8 \uD83C\uDDEB\uD83C\uDDF7 \uD83C\uDDE9\uD83C\uDDEA \uD83C\uDDEF\uD83C\uDDF5 \uD83C\uDDF5\uD83C\uDDF9 \uD83C\uDDEE\uD83C\uDDF9';
+  var joinTile=four?'<div class="ben-item"><span class="ben-ic">'+IC_G+'</span><div class="ben-tx">'+
+      '<b>Join from Anywhere</b><span>Two live training days on Zoom</span></div></div>':'';
+  if(four)document.documentElement.classList.add('ben4');
+  i5.innerHTML='<div class="ben-rail">'+joinTile+
     '<div class="ben-item"><span class="ben-ic">'+IC_CC+'</span><div class="ben-tx">'+
       '<b>Translated Live Captions</b><span>Choose your caption language</span></div></div>'+
     '<div class="ben-item"><span class="ben-ic">'+IC_SP+'</span><div class="ben-tx">'+
-      '<b>Dubbed Recordings</b><span>7 languages, selected at registration</span></div></div>'+
+      '<b>Recordings in 7 Languages</b><span class="ben-flags">'+FL+'</span></div></div>'+
     '<div class="ben-item"><span class="ben-ic">'+IC_RP+'</span><div class="ben-tx">'+
       '<b>180-Day Replay</b><span>Watch on your own schedule</span></div></div>'+
     '</div>';
@@ -2150,7 +2152,7 @@ document.addEventListener('DOMContentLoaded',function(){
 });
 if(p.get('eb')==='ww'){r.classList.add('eb-ww');
   document.addEventListener('DOMContentLoaded',function(){
-    var t=document.querySelector('.ll-txt'); if(t)t.textContent='Live Online \u2022 Worldwide';
+    var t=document.querySelector('.ll-txt'); if(t)t.textContent='Global Training Event';
     // meta pairs with the ww eyebrow: "Live on Zoom" + on-air mark (worldwide moved up, live restored)
     var m=document.querySelector('.nh-meta2 span:last-of-type');
     if(m){m.innerHTML='<svg class="m2-live" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="#8FB6FF" stroke-width="1.9" stroke-linecap="round"><path d="M9.3 8a6 6 0 0 0 0 8M14.7 8a6 6 0 0 1 0 8"/><path d="M6.4 5.2a10 10 0 0 0 0 13.6M17.6 5.2a10 10 0 0 1 0 13.6" opacity=".82"/></g><circle cx="12" cy="12" r="2.3" fill="#8FB6FF"/></svg>Live on Zoom';}
@@ -2619,7 +2621,9 @@ html{scroll-behavior:smooth}
 .ben-chat .ben-tx b{font-size:18px}
 .ben-chat .ben-tx span{font-size:14.5px}
 .ben-chat .ben-ic svg{width:46px;height:46px}
-.ben-chat .ben-rail{grid-template-columns:auto auto auto auto;justify-content:space-between}
+.ben-chat .ben-rail{grid-template-columns:auto auto auto;justify-content:space-between}
+.ben4 .ben-rail{grid-template-columns:auto auto auto auto}
+.ben-chat .ben-flags{font-size:16px;letter-spacing:.30em;margin-top:4px}
 @media(max-width:1140px){
   .ben-chat .ben-rail{grid-template-columns:1fr 1fr;justify-content:stretch;row-gap:26px}
   .ben-chat .ben-item{flex-direction:column;align-items:center;text-align:center;gap:9px;
@@ -2890,7 +2894,7 @@ html{scroll-behavior:smooth}
           <div class="i5-left">
             <div class="i5-eb">Global Access</div>
             <h2>Join live from anywhere.<br>Watch back in your language.</h2>
-            <p>Real-time captions during every session, with dubbed recordings available on request and 180-day replay access.</p>
+            <p>Live translated captions in every session, recordings dubbed in your language, and 180 days of replay.</p>
           </div>
           <div class="i5-right">
             <div class="i5-row"><span class="i5-ic"><svg viewBox="0 0 24 24"><g fill="none" stroke="#3ED8F0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.4" width="18" height="13.2" rx="3.4"/><path d="M10.7 9.9a2.4 2.4 0 1 0 0 4.2M16.8 9.9a2.4 2.4 0 1 0 0 4.2"/></g></svg></span><div class="i5-mid"><i>Live</i><b>Real-time captions</b></div><em>Every Zoom session</em></div>
@@ -2908,7 +2912,7 @@ html{scroll-behavior:smooth}
     <div class="wa-copy">
       <h2 class="wa-h"><span class="lt">Practical</span> <span class="bd">Premiere Training</span></h2>
       <p>Two days of learning straight from the Adobe Team and Community Experts.</p>
-      <p>Join the training live on Zoom to follow demonstrations and ask questions, with real-time captions in every session. Recordings of the sessions included with your ticket remain available for 180 days, with dubbing in seven languages available on request.</p>
+      <p>Join the training live on Zoom to follow demonstrations and ask questions, with real-time captions in every session. Your recordings are dubbed in the language you choose at registration \u2014 English, Spanish, French, German, Japanese, Portuguese, or Italian \u2014 and stay available to rewatch for 180 days.</p>
     </div>
     <div class="wa-cards">
       <a class="wa-card" href="#day1">
@@ -3144,7 +3148,7 @@ html{scroll-behavior:smooth}
         <div class="gcell">
           <div class="gring"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="4" y="7" width="40" height="29" rx="3.5"/><path d="M24 36v5M17 41h14"/><text class="icon-cc" x="24" y="26.5" text-anchor="middle">CC</text></svg></div>
           <h3>Live on Zoom with<br class="tab-br">Real-Time Captions</h3>
-          <p>Join live from anywhere with accessible captions built into the experience.</p>
+          <p>Join live from anywhere and follow along with translated captions in 35+ languages \u2014 pick yours right in Zoom.</p>
         </div>
         <div class="gcell">
           <div class="gring"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19"/><path d="M20.5 16.5 32 24l-11.5 7.5z"/></svg></div>
@@ -3245,7 +3249,7 @@ html{scroll-behavior:smooth}
             <li>Learn from the Adobe team &amp; Community Experts</li>
             <li>Get your questions answered live</li>
             <li>Real-time captions during live sessions</li>
-            <li>Professional dubbing available on request</li>
+            <li>Recordings dubbed in the language you choose</li>
           </ul>
         </div>
         <div class="ptier feat">
@@ -3258,7 +3262,7 @@ html{scroll-behavior:smooth}
             <li>Learn from the Adobe team &amp; Community Experts</li>
             <li>Get your questions answered live</li>
             <li>Real-time captions during live sessions</li>
-            <li>Professional dubbing available on request</li>
+            <li>Recordings dubbed in the language you choose</li>
           </ul>
         </div>
       </div>
