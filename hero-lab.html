@@ -1764,7 +1764,7 @@ nav.is-scrolled .navlinks a{color:#b9c0cf}
 .wa-h{font-weight:700;letter-spacing:-.03em}
 </style>
 <style>/* ===== hero breathing room + palette ===== */
-.nh-inner{padding-block:clamp(70px,8.2vh,112px) clamp(56px,7vh,96px)}
+.nh-inner{padding-block:clamp(54px,6.2vh,84px) clamp(34px,4.2vh,56px)}
 /* live line: bright cyan reads "live/on-air", not "warning" */
 .nh-live{color:#3ED8F0}
 @supports (color:color(display-p3 1 0 0)){.nh-live{color:color(display-p3 .2 .85 .95)}}
@@ -2002,7 +2002,7 @@ if(p.get('intl')==='8'){document.addEventListener('DOMContentLoaded',function(){
   var R='<svg viewBox="0 0 24 24"><g fill="none" stroke="#F04ED4" stroke-width="1.6" stroke-linecap="round">'+
     '<circle cx="12" cy="12" r="8.6"/><path d="M10.2 8.7l5.4 3.3-5.4 3.3z" fill="#F04ED4" stroke="none"/></g></svg>';
   var J='<svg viewBox="0 0 24 24"><g fill="none" stroke="#3ED8F0" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2M12 3.4c2.4 2.8 3.6 5.7 3.6 8.6s-1.2 5.8-3.6 8.6c-2.4-2.8-3.6-5.7-3.6-8.6s1.2-5.8 3.6-8.6z"/></g></svg>';
-  var four=p.get('ben')!=='3';
+  var four=p.get('ben')==='4';
   var i5=document.querySelector('.i5'); if(!i5)return;
   var band=document.createElement('div'); band.className='ben-band';
   rail.insertBefore(band,i5); band.appendChild(i5);
@@ -2541,7 +2541,7 @@ html,body{max-width:100%;overflow-x:hidden}
   font-size:13px;font-weight:600;color:#E7EBF4}
 .i5-chips .chip i{font-style:normal;margin-right:7px}
 
-.nh-meta2 .m2-live{position:relative;top:2px;overflow:visible}
+.nh-meta2 .m2-live{position:relative;top:0.5px;overflow:visible}
 
 /* sticky bar: Program button only when ?mreg=2 */
 .mreg-prog{display:none!important}
@@ -2595,12 +2595,12 @@ html{scroll-behavior:smooth}
 
 /* ===== Ben's band (?intl=8) — centred eyebrow over a full-bleed 3-item rail ===== */
 .intl8 .i5{display:block;box-sizing:border-box;width:100%;max-width:var(--shell-max);
-  margin-inline:auto;padding:24px var(--shell-pad)}
+  margin-inline:auto;padding:20px var(--shell-pad)}
 .intl8 .nh-rail .event-rail,.intl8 .rail-head,.intl8 .nh-rail .lang-bar{display:none!important}
 .ben-eb{display:none}
 .intl8 .ben-eb{display:block;text-align:center;background:none;position:relative;z-index:4;
   font-size:18px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#F5F7FB;
-  text-shadow:0 2px 14px rgba(0,0,0,.55);padding:26px 20px 23px;text-wrap:balance;line-height:1.35}
+  text-shadow:0 2px 14px rgba(0,0,0,.55);padding:18px 20px 16px;text-wrap:balance;line-height:1.35}
 .intl8 .nh-rail{position:relative;z-index:3;border-top:0;border-bottom:0;padding:0;background:transparent}
 .intl8 .nh-bg,.intl8 .nh-scrim{bottom:auto;height:100%}
 .intl8 .nh::after{display:none}
@@ -2620,12 +2620,12 @@ html{scroll-behavior:smooth}
 @media(max-width:600px){.ben4 .ben-rail{grid-template-columns:1fr}}
 .ben4 .ben-tx b{font-size:17.5px}
 .ben4 .ben-tx span{font-size:14.5px}
-.ben4 .ben-ic svg{width:33px;height:33px}
+.ben4 .ben-ic svg{width:44px;height:44px}
 .ben4 .ben-flags{font-size:17px;letter-spacing:.22em}
 .ben-item{display:flex;align-items:center;gap:15px;position:relative;min-width:0}
 .ben-ic{flex:0 0 auto;width:auto;height:auto;border:0;background:none;box-shadow:none;
   display:flex;align-items:center;justify-content:center}
-.ben-ic svg{width:38px;height:38px;filter:drop-shadow(0 0 14px rgba(62,216,240,.32))}
+.ben-ic svg{width:50px;height:50px;filter:drop-shadow(0 0 16px rgba(62,216,240,.32))}
 .ben-ic.ben-v svg{filter:drop-shadow(0 0 14px rgba(167,139,250,.32))}
 .ben-ic.ben-m svg{filter:drop-shadow(0 0 14px rgba(240,78,212,.3))}
 .ben-tx{display:flex;flex-direction:column;gap:1px;min-width:0}
@@ -2634,7 +2634,7 @@ html{scroll-behavior:smooth}
 .ben-flags{font-size:20px;letter-spacing:.34em;line-height:1.15;margin-top:3px}
 @media(max-width:1180px){
   .ben-tx b{font-size:17.5px}.ben-tx span{font-size:15px}
-  .ben-ic svg{width:34px;height:34px}
+  .ben-ic svg{width:42px;height:42px}
   .ben-flags{font-size:18px;letter-spacing:.26em}
   .ben-rail{gap:24px}
 }
@@ -2642,7 +2642,7 @@ html{scroll-behavior:smooth}
   .intl8 .ben-eb{font-size:clamp(13.5px,4.1vw,17px);letter-spacing:.15em;padding:20px 16px 17px}
   .ben-rail{grid-template-columns:1fr;gap:30px;justify-items:center}
   .ben-item{flex-direction:column;align-items:center;text-align:center;gap:11px;width:100%}
-  .ben-ic svg{width:44px;height:44px}
+  .ben-ic svg{width:50px;height:50px}
   .ben-tx{align-items:center;gap:2px}
   .ben-tx b{font-size:20px;white-space:normal}
   .ben-tx span{font-size:17.5px;white-space:normal}
@@ -2652,7 +2652,7 @@ html{scroll-behavior:smooth}
   .ben-rail{grid-template-columns:repeat(3,1fr);gap:22px}
   .ben-item{width:auto}
   .ben-item{flex-direction:column;align-items:center;text-align:center;gap:10px}
-  .ben-ic svg{width:36px;height:36px}
+  .ben-ic svg{width:46px;height:46px}
   .ben-tx{align-items:center;gap:2px}
   .ben-tx b{font-size:18px;white-space:normal;text-wrap:balance;max-width:12ch;line-height:1.25}
   .ben-tx span{font-size:15px;white-space:nowrap;max-width:none}
