@@ -2016,8 +2016,8 @@ if(gh){document.addEventListener('DOMContentLoaded',function(){
 });}
 if(p.get('intl')==='8'){document.addEventListener('DOMContentLoaded',function(){
   var rail=document.querySelector('.nh-rail'); if(!rail)return;
-  var eb=document.createElement('div'); eb.className='ben-eb';
-  eb.textContent='Designed for an International Audience';
+  var eb=document.createElement('a'); eb.className='ben-eb'; eb.href='#global-band';
+  eb.innerHTML='Designed for an International Audience <span class="ben-eb-a">\u2192</span>';
   var G='<svg viewBox="0 0 24 24"><g fill="none" stroke="#3ED8F0" stroke-width="1.6" stroke-linecap="round">'+
     '<circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2"/>'+
     '<path d="M12 3.4c2.3 2.4 3.5 5.4 3.5 8.6s-1.2 6.2-3.5 8.6c-2.3-2.4-3.5-5.4-3.5-8.6S9.7 5.8 12 3.4z"/></g></svg>';
@@ -2892,6 +2892,21 @@ html{scroll-behavior:smooth}
 .h3x .i5-icons .i5-mid i{display:none}
 .h3x .i5-ic{flex-basis:32px;width:32px;height:32px}.h3x .i5-ic svg{width:19px;height:19px}
 .h3x .i5-icons .i5-mid b{font-size:13.5px;color:#aab2c4}
+.intl8 a.ben-eb{display:block;text-decoration:none;cursor:pointer}
+.intl8 a.ben-eb:hover{color:#7DE9FF}
+.ben-eb-a{display:inline-block;margin-left:6px;transition:transform .2s ease}
+.intl8 a.ben-eb:hover .ben-eb-a{transform:translateX(4px)}
+.zlink{color:#3ED8F0;text-decoration:none;border-bottom:1px solid rgba(62,216,240,.4)}
+.zlink:hover{color:#7DE9FF}
+/* Meagan band: CSS zoom-out — image at 78% over a matching glow bg, feathered mask */
+#instructor-meagan .band-media{background:
+  radial-gradient(46% 64% at 10% 64%,rgba(38,78,180,.34),transparent 72%),
+  radial-gradient(46% 64% at 90% 56%,rgba(168,38,108,.30),transparent 72%),
+  #0A0A12;display:flex;align-items:flex-end;justify-content:center}
+#instructor-meagan .band-media img{width:78%;display:block;
+  -webkit-mask-image:radial-gradient(130% 112% at 50% 100%,#000 46%,transparent 92%);
+  mask-image:radial-gradient(130% 112% at 50% 100%,#000 46%,transparent 92%)}
+
 .gw{font-style:normal;background:linear-gradient(92deg,#22D3EE,#4F7CFF 45%,#A78BFA);
   -webkit-background-clip:text;background-clip:text;color:transparent}
 </style></head>
@@ -3226,17 +3241,17 @@ html{scroll-behavior:smooth}
     <div id="global" class="glob">
         <div class="gcell">
           <div class="gring"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="4" y="7" width="40" height="29" rx="3.5"/><path d="M24 36v5M17 41h14"/><text class="icon-cc" x="24" y="26.5" text-anchor="middle">CC</text></svg></div>
-          <h3>Live on Zoom with<br class="tab-br">Real-Time Captions</h3>
-          <p>Follow along live with translated captions in 35+ languages, right in Zoom.</p>
+          <h3>Live on Zoom with <br class="tab-br">Real-Time Captions</h3>
+          <p>Follow along live with translated captions in 35+ languages, right in Zoom. <a class="zlink" href="https://support.zoom.com/hc/en/article?id=zm_kb&amp;sysparm_article=KB0060844" target="_blank" rel="noopener noreferrer">See the full list</a></p>
         </div>
         <div class="gcell">
           <div class="gring"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M13 12A17.2 17.2 0 1 1 8 27.2" fill="none"/><path d="M13.8 5.2l-1 7 7 1" fill="none"/><path d="M21 17.8l9.8 6.2-9.8 6.2z" fill="none"/></svg></div>
-          <h3>180-Day<br class="tab-br">Recording Access</h3>
+          <h3>180-Day <br class="tab-br">Recording Access</h3>
           <p>Replay every session on your own schedule after the live event ends.</p>
         </div>
         <div class="gcell">
           <div class="gring"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="3" y="5" width="33" height="25" rx="3.5"/><path d="M19.5 30v5M13.5 35h12"/><circle cx="35" cy="33" r="10.5"/><path d="M24.5 33h21M35 22.5c3 2.8 4.6 6.3 4.6 10.5S38 40.7 35 43.5M35 22.5c-3 2.8-4.6 6.3-4.6 10.5S32 40.7 35 43.5"/></svg></div>
-          <h3>Professionally<br class="tab-br">Dubbed Recordings</h3>
+          <h3>Professionally <br class="tab-br">Dubbed Recordings</h3>
           <p>Recordings dubbed in your choice of seven languages, picked at registration.</p>
         </div>
     </div>
@@ -3245,7 +3260,7 @@ html{scroll-behavior:smooth}
         <span class="abadge" style="--ring:rgba(201,143,214,.46)">
           <svg viewBox="0 0 24 24" stroke="#c98fd6"><path d="M3.6 6.6A2.6 2.6 0 0 1 6.2 4h11.6a2.6 2.6 0 0 1 2.6 2.6v7a2.6 2.6 0 0 1-2.6 2.6H10l-4.4 3.6v-3.6h-1A2.6 2.6 0 0 1 3.6 13.6z"/><circle cx="8.4" cy="10.2" r=".9" fill="#c98fd6" stroke="none"/><circle cx="12" cy="10.2" r=".9" fill="#c98fd6" stroke="none"/><circle cx="15.6" cy="10.2" r=".9" fill="#c98fd6" stroke="none"/></svg>
         </span>
-        <div class="albl">Language<br>Access</div>
+        <div class="albl">Recording<br>Languages</div>
         <div class="alist">
           <span>English</span><span>Spanish</span><span>French</span><span>German</span><span>Japanese</span><span>Portuguese</span><span>Italian</span>
         </div>
