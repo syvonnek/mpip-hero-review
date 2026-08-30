@@ -2005,10 +2005,6 @@ document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){
       if(li.textContent.indexOf("180-day access to that day")>-1)li.textContent="180-day access to your selected day's recording";
       if(li.textContent.indexOf('dubbed in your choice')>-1)li.textContent='Recording language selected at registration';
     });});
-  // 5) discreet regional-times anchor under the hero meta
-  var m2=document.querySelector('.nh-meta2');
-  if(m2){var a=document.createElement('a'); a.className='nh-tz'; a.href='#agenda';
-    a.textContent='See regional start times \u2192'; m2.parentNode.insertBefore(a,m2.nextSibling);}
 },0);});}
 var gh=p.get('gh');
 if(gh){document.addEventListener('DOMContentLoaded',function(){
@@ -2601,6 +2597,13 @@ html,body{max-width:100%;overflow-x:hidden}
 .chatv .nh-tz{display:inline-block;margin-top:10px;font-size:14px;color:#8FB6FF;text-decoration:none}
 .chatv .nh-tz:hover{color:#BCD4FF}
 
+/* day-card icon parity: AI mark scaled to the wheel's optical size, equal boxes */
+.cards5 #why-attend .wa-ic{width:72px;height:72px;margin-top:12px;margin-bottom:20px}
+.cards5 #why-attend .wa-wheel{width:64px;height:64px;margin-inline:auto}
+.cards5 #why-attend .wa-ai{width:64px;height:64px;margin-inline:auto}
+.cards5 #why-attend .wa-ai svg{width:46px;height:46px}
+.cards5 #why-attend .wa-card h3{min-height:2.4em;display:flex;align-items:center;justify-content:center}
+
 /* day cards: whole card is the link; no explicit cue line; tighter icon spacing */
 #why-attend .wa-go{display:none}
 .cards5 #why-attend .wa-chip{margin-bottom:12px}
@@ -3150,7 +3153,7 @@ html{scroll-behavior:smooth}
         <div class="in-grid">
           <div class="time"><b>4:45 &ndash; 5:30 PM ET</b></div>
           <div><div class="tk-lbl">Live Q&amp;A</div><h4>Q&amp;A with Meagan Keane: Adobe&rsquo;s Approach to AI in Premiere</h4><div class="spk">Speaker: Meagan Keane, Adobe</div><button class="sd-trigger" data-sd="11">Session Details</button></div>
-          <div class="smedia"><img loading="lazy" src="assets/adobe/program/day2-ai-vs-artist.webp" alt="Adobe Premiere Object Mask interface, an AI-assisted selection tool"></div>
+          <div class="smedia"><img loading="lazy" src="assets/meagan-keane-portrait.webp" alt="Meagan Keane, Director of Product Marketing, Adobe Professional Film and Video"></div>
         </div>
       </div>
     </div>
@@ -3179,7 +3182,15 @@ html{scroll-behavior:smooth}
         <p class="bio">Colorist, writer/director, educator — and the person building the future of color at Adobe. Alexis contributed extensively to DaVinci Resolve (versions 9–17) before joining Adobe, and brings deep experience at the intersection of creative vision and color technology.</p>
       </div>
     </div>
-    <div class="band reveal" id="instructor-eran">
+    <div class="band reveal" id="instructor-meagan">
+      <div class="band-media"><picture><source srcset="assets/meagan-keane-portrait.webp" type="image/webp"><img src="assets/meagan-keane-portrait.png" alt="Meagan Keane" loading="lazy"></picture></div>
+      <div class="id">
+        <h3>Meagan Keane</h3>
+        <div class="role">Director of Product Marketing, Adobe Professional Film &amp; Video</div>
+        <p class="bio">Meagan came to Adobe from feature documentary production &mdash; her credits include Sundance Grand Jury winner We Live in Public &mdash; and has helped shape Premiere Pro since 2012. She holds an MFA in film production from USC&rsquo;s School of Cinematic Arts.</p>
+      </div>
+    </div>
+    <div class="band rev reveal" id="instructor-eran">
       <div class="band-media"><picture><source srcset="assets/eran-portrait-color-mode-1100.webp" type="image/webp"><img src="assets/eran-portrait-color-mode.png" alt="Eran Stern" loading="lazy"></picture></div>
       <div class="id">
         <h3>Eran Stern</h3>
@@ -3187,7 +3198,7 @@ html{scroll-behavior:smooth}
         <p class="bio">International Adobe trainer and educator with decades of experience in motion graphics and post-production. Eran has trained thousands of editors globally and is one of Adobe's most recognized evangelists for Premiere and After Effects.</p>
       </div>
     </div>
-    <div class="band rev luisa-band reveal" id="instructor-luisa">
+    <div class="band luisa-band reveal" id="instructor-luisa">
       <div class="band-media"><picture><source srcset="assets/luisa-portrait-color-mode-1100.webp" type="image/webp"><img src="assets/luisa-portrait-color-mode.png" alt="Luisa Winters" loading="lazy"></picture></div>
       <div class="id">
         <h3>Luisa Winters</h3>
@@ -3635,7 +3646,7 @@ document.querySelectorAll('[data-count]').forEach(function(el){cio.observe(el)})
 // ---- session details: bottom sheet ----
 (function(){
   var TRACKS={r:'#22D3EE',o:'#38B4F4',g:'#4F7CFF',b:'#6B6AF8',v:'#8B5CF6',p:'#E34FCB'};
-  var SPEAKER_ANCHORS={'Luisa Winters':'instructor-luisa','Eran Stern':'instructor-eran','Alexis Van Hurkman':'instructor-alexis'};
+  var SPEAKER_ANCHORS={'Luisa Winters':'instructor-luisa','Eran Stern':'instructor-eran','Alexis Van Hurkman':'instructor-alexis','Meagan Keane':'instructor-meagan'};
   function spkHTML(spk){
     var m=spk.match(/^(.*?: )(.+)$/);
     if(!m)return spk;
@@ -3700,7 +3711,7 @@ document.querySelectorAll('[data-count]').forEach(function(el){cio.observe(el)})
       objectives:["Translate written ideas into visual references.","Align directors, editors, clients, and production teams around a shared visual direction.","Explore multiple creative approaches quickly.","Establish visual style, tone, and composition before production.","Use Boards as a bridge between pre-production, production, and post-production.","Reinforce that AI helps visualize possibilities while the artist determines the creative direction."],
       seen:["Firefly Boards","Moodboards","Visual references","Script visualization","Creative briefs","Treatments","Storyboard-style frames","Shot concepts","Composition exploration","Lighting direction","Location ideas","Wardrobe direction","Visual tone","Style exploration","Creative variations","Comparing visual directions","Collaborative visual planning","Moving from concept to production","Bringing visual references into the editorial process"]},
     {tk:'r',tag:'Live Q&amp;A',title:'Q&amp;A with Meagan Keane: Adobe&rsquo;s Approach to AI in Premiere',spk:'Speaker: Meagan Keane, Director of Product Marketing, Adobe Professional Film &amp; Video',
-      img:'assets/adobe/program/day2-ai-vs-artist.webp',
+      img:'assets/meagan-keane-portrait.webp',
       desc:"Join Meagan Keane, Director of Product Marketing, Adobe Professional Film &amp; Video, for a behind-the-scenes look at how Adobe thinks about AI in Premiere&mdash;not as a replacement for editorial judgment, but as a way to remove the repetitive work that stands between the editor and the story they&rsquo;re trying to tell. This Q&amp;A discussion will break down the philosophy behind Adobe&rsquo;s AI investments in Premiere and how they&rsquo;re built to keep editors, not algorithms, in creative control.",
       objectives:[],seen:[],takeaway:"AI removes the busywork. Editors keep creative control."}
   ];
