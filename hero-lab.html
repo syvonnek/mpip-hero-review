@@ -1996,31 +1996,15 @@ document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){
   tiles.forEach(function(t){var b=t.querySelector('.ben-tx b');
     if(b&&b.textContent.indexOf('Recordings')===0){
       var fl=t.querySelector('.ben-flags');
-      var sp=document.createElement('span'); sp.textContent='Select yours at registration';
-      var tx=t.querySelector('.ben-tx'); tx.insertBefore(sp,fl);
       if(fl){fl.setAttribute('role','img');
         fl.setAttribute('aria-label','English, Spanish, French, German, Japanese, Portuguese, Italian');}
     }});
-  // 2) new International Access section after the day cards
-  var wa=document.querySelector('#why-attend'); if(!wa)return;
-  var sec=document.createElement('section'); sec.id='intl-access';
-  sec.innerHTML='<div class="shell">'+
-    '<div class="ia-head"><div class="ia-eb">International Access</div>'+
-    '<h2>Language access, live and on replay.</h2></div>'+
-    '<div class="ia-steps">'+
-    '<div class="ia-step"><i>1</i><h3>At registration</h3><p>Choose English, Spanish, French, German, Japanese, Portuguese, or Italian as your recording language.</p></div>'+
-    '<div class="ia-step"><i>2</i><h3>During the live event</h3><p>Turn on translated captions in Zoom and choose from 35+ supported languages. Your caption choice applies only to your own screen.</p></div>'+
-    '<div class="ia-step"><i>3</i><h3>After the event</h3><p>Your recordings arrive dubbed in the language you selected, and stay available for 180 days.</p></div>'+
-    '</div></div>';
-  wa.parentNode.insertBefore(sec,wa.nextSibling);
   // 3) pricing bullets per proposal
   document.querySelectorAll('.ptier .inc').forEach(function(ul){
     ul.querySelectorAll('li').forEach(function(li){
       if(li.textContent.indexOf("180-day access to that day")>-1)li.textContent="180-day access to your selected day's recording";
       if(li.textContent.indexOf('dubbed in your choice')>-1)li.textContent='Recording language selected at registration';
     });});
-  // 4) hide the now-redundant explainer cells in the old section
-  var g=document.querySelector('#global-band .glob'); if(g)g.style.display='none';
   // 5) discreet regional-times anchor under the hero meta
   var m2=document.querySelector('.nh-meta2');
   if(m2){var a=document.createElement('a'); a.className='nh-tz'; a.href='#agenda';
@@ -2053,9 +2037,9 @@ if(p.get('intl')==='8'){document.addEventListener('DOMContentLoaded',function(){
   rail.insertBefore(band,i5); band.appendChild(i5);
   rail.insertBefore(eb,band);
   var IC_G='<svg viewBox="0 0 24 24"><g fill="none" stroke="#4FC3F7" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8.8"/><path d="M3.2 12h17.6"/><path d="M4.6 7.3c2 1.1 4.6 1.7 7.4 1.7s5.4-.6 7.4-1.7M4.6 16.7c2-1.1 4.6-1.7 7.4-1.7s5.4.6 7.4 1.7"/><path d="M12 3.2c3.3 2.7 3.3 14.9 0 17.6M12 3.2c-3.3 2.7-3.3 14.9 0 17.6"/></g></svg>';
-  var IC_CC='<svg viewBox="0 0 24 24"><defs><linearGradient id="gcc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4FA8F5"/><stop offset="1" stop-color="#7D6CF8"/></linearGradient></defs><g fill="none" stroke="url(#gcc)" stroke-width="1.5" stroke-linejoin="round"><path d="M6.2 4.4h11.6a2.9 2.9 0 0 1 2.9 2.9v6.4a2.9 2.9 0 0 1-2.9 2.9H11.2l-3.6 3v-3H6.2a2.9 2.9 0 0 1-2.9-2.9V7.3a2.9 2.9 0 0 1 2.9-2.9z"/></g><text x="12" y="13.4" text-anchor="middle" font-size="7.2" font-weight="800" fill="#5E8CF6" font-family="inherit">CC</text></svg>';
-  var IC_SP='<svg viewBox="0 0 24 24"><g fill="none" stroke="#A06CF5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.6v4.8h3.1l4.5 3.8V5.8L7.1 9.6z"/><path d="M14.6 9.4a4.1 4.1 0 0 1 0 5.2"/><path d="M17 7a7.6 7.6 0 0 1 0 10"/></g></svg>';
-  var IC_RP='<svg viewBox="0 0 24 24"><g fill="none" stroke="#D65BD0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6A8.6 8.6 0 1 1 4 13.6"/><path d="M6.9 2.6L6.4 6.1l3.5.5"/><path d="M10.5 8.9l4.9 3.1-4.9 3.1z"/></g></svg>';
+  var IC_CC='<svg viewBox="0 0 24 24"><defs><linearGradient id="gcc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4FA8F5"/><stop offset="1" stop-color="#7D6CF8"/></linearGradient></defs><g fill="none" stroke="url(#gcc)" stroke-width="1.3" stroke-linejoin="round"><path d="M6.2 4.4h11.6a2.9 2.9 0 0 1 2.9 2.9v6.4a2.9 2.9 0 0 1-2.9 2.9H11.2l-3.6 3v-3H6.2a2.9 2.9 0 0 1-2.9-2.9V7.3a2.9 2.9 0 0 1 2.9-2.9z"/></g><text x="12" y="13.4" text-anchor="middle" font-size="7.2" font-weight="800" fill="#5E8CF6" font-family="inherit">CC</text></svg>';
+  var IC_SP='<svg viewBox="0 0 24 24"><g fill="none" stroke="#A06CF5" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.6v4.8h3.1l4.5 3.8V5.8L7.1 9.6z"/><path d="M14.6 9.4a4.1 4.1 0 0 1 0 5.2"/><path d="M17 7a7.6 7.6 0 0 1 0 10"/></g></svg>';
+  var IC_RP='<svg viewBox="0 0 24 24"><g fill="none" stroke="#D65BD0" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6A8.6 8.6 0 1 1 4 13.6"/><path d="M6.9 2.6L6.4 6.1l3.5.5"/><path d="M10.5 8.9l4.9 3.1-4.9 3.1z"/></g></svg>';
   document.documentElement.classList.add('ben-chat');
   var FL='\uD83C\uDDFA\uD83C\uDDF8 \uD83C\uDDEA\uD83C\uDDF8 \uD83C\uDDEB\uD83C\uDDF7 \uD83C\uDDE9\uD83C\uDDEA \uD83C\uDDEF\uD83C\uDDF5 \uD83C\uDDF5\uD83C\uDDF9 \uD83C\uDDEE\uD83C\uDDF9';
   var joinTile=four?'<div class="ben-item"><span class="ben-ic">'+IC_G+'</span><div class="ben-tx">'+
@@ -3225,7 +3209,7 @@ html{scroll-behavior:smooth}
 <section id="global-band">
   <div class="shell reveal">
     <div class="ctr-txt">
-      <h3 class="t2">Created for editors everywhere.</h3>
+      <h3 class="t2">Created for editors worldwide.</h3>
       <div class="global-accent" aria-hidden="true"></div>
     </div>
     <div id="global" class="glob">
