@@ -2053,9 +2053,9 @@ if(p.get('intl')==='8'){document.addEventListener('DOMContentLoaded',function(){
   rail.insertBefore(band,i5); band.appendChild(i5);
   rail.insertBefore(eb,band);
   var IC_G='<svg viewBox="0 0 24 24"><g fill="none" stroke="#4FC3F7" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8.8"/><path d="M3.2 12h17.6"/><path d="M4.6 7.3c2 1.1 4.6 1.7 7.4 1.7s5.4-.6 7.4-1.7M4.6 16.7c2-1.1 4.6-1.7 7.4-1.7s5.4.6 7.4 1.7"/><path d="M12 3.2c3.3 2.7 3.3 14.9 0 17.6M12 3.2c-3.3 2.7-3.3 14.9 0 17.6"/></g></svg>';
-  var IC_CC='<svg viewBox="0 0 24 24"><g fill="none" stroke="#7D8CF8" stroke-width="1.5" stroke-linejoin="round"><path d="M6.4 4.6h11.2a3 3 0 0 1 3 3v6.6a3 3 0 0 1-3 3H11l-3.8 3.2v-3.2H6.4a3 3 0 0 1-3-3V7.6a3 3 0 0 1 3-3z"/></g><text x="12" y="13.5" text-anchor="middle" font-size="6.8" font-weight="800" fill="#7D8CF8" font-family="inherit">CC</text></svg>';
+  var IC_CC='<svg viewBox="0 0 24 24"><defs><linearGradient id="gcc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4FA8F5"/><stop offset="1" stop-color="#7D6CF8"/></linearGradient></defs><g fill="none" stroke="url(#gcc)" stroke-width="1.5" stroke-linejoin="round"><path d="M6.2 4.4h11.6a2.9 2.9 0 0 1 2.9 2.9v6.4a2.9 2.9 0 0 1-2.9 2.9H11.2l-3.6 3v-3H6.2a2.9 2.9 0 0 1-2.9-2.9V7.3a2.9 2.9 0 0 1 2.9-2.9z"/></g><text x="12" y="13.4" text-anchor="middle" font-size="7.2" font-weight="800" fill="#5E8CF6" font-family="inherit">CC</text></svg>';
   var IC_SP='<svg viewBox="0 0 24 24"><g fill="none" stroke="#A06CF5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.6v4.8h3.1l4.5 3.8V5.8L7.1 9.6z"/><path d="M14.6 9.4a4.1 4.1 0 0 1 0 5.2"/><path d="M17 7a7.6 7.6 0 0 1 0 10"/></g></svg>';
-  var IC_RP='<svg viewBox="0 0 24 24"><g fill="none" stroke="#F04E9E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 12a8.6 8.6 0 1 1-3.2-6.7"/><path d="M17.4 1.9h3.6v3.6"/></g><path d="M10.5 8.8l5.1 3.2-5.1 3.2z" fill="#F04E9E"/></svg>';
+  var IC_RP='<svg viewBox="0 0 24 24"><g fill="none" stroke="#D65BD0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6A8.6 8.6 0 1 1 4 13.6"/><path d="M6.9 2.6L6.4 6.1l3.5.5"/><path d="M10.5 8.9l4.9 3.1-4.9 3.1z"/></g></svg>';
   document.documentElement.classList.add('ben-chat');
   var FL='\uD83C\uDDFA\uD83C\uDDF8 \uD83C\uDDEA\uD83C\uDDF8 \uD83C\uDDEB\uD83C\uDDF7 \uD83C\uDDE9\uD83C\uDDEA \uD83C\uDDEF\uD83C\uDDF5 \uD83C\uDDF5\uD83C\uDDF9 \uD83C\uDDEE\uD83C\uDDF9';
   var joinTile=four?'<div class="ben-item"><span class="ben-ic">'+IC_G+'</span><div class="ben-tx">'+
@@ -2343,6 +2343,11 @@ html,body{max-width:100%;overflow-x:hidden}
 </style><style>/* ===== why-attend: centered composition (her spec) ===== */
 #why-attend .wa-grid{grid-template-columns:1fr;gap:42px;justify-items:center}
 #why-attend .wa-copy{display:flex;flex-direction:column;align-items:center;text-align:center}
+#why-attend .wa-h{position:relative;padding-bottom:20px}
+#why-attend .wa-h::after{content:"";position:absolute;left:50%;bottom:0;transform:translateX(-50%);
+  width:min(420px,80%);height:2px;border-radius:2px;
+  background:linear-gradient(90deg,#22D3EE,#4F7CFF 45%,#8B5CF6 85%,rgba(139,92,246,0))}
+#why-attend .wa-card p{font-size:17px;line-height:1.45;margin-top:8px}
 .wa-h{font-size:54px;letter-spacing:-.03em;line-height:1.02}
 .wa-h .lt{font-weight:300}
 .wa-h .bd{font-weight:600}
@@ -2681,7 +2686,7 @@ html{scroll-behavior:smooth}
 .intl8 .nh-rail .event-rail,.intl8 .rail-head,.intl8 .nh-rail .lang-bar{display:none!important}
 .ben-eb{display:none}
 .intl8 .ben-eb{display:block;text-align:center;background:none;position:relative;z-index:4;
-  font-size:18px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#F5F7FB;
+  font-size:18px;font-weight:490;letter-spacing:.2em;text-transform:uppercase;color:#F5F7FB;
   text-shadow:0 2px 14px rgba(0,0,0,.55);padding:18px 20px 16px;text-wrap:balance;line-height:1.35}
 .intl8 .nh-rail{position:relative;z-index:3;border-top:0;border-bottom:0;padding:0;background:transparent}
 .intl8 .nh-bg,.intl8 .nh-scrim{bottom:auto;height:100%}
@@ -2696,8 +2701,8 @@ html{scroll-behavior:smooth}
 .ben-rail{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;align-items:center;gap:0}
 .ben-chat .ben-item{padding-inline:0}
 .ben-chat .ben-tx b{font-size:18px}
-.ben-chat .ben-tx span{font-size:14.5px}
-.ben-chat .ben-ic svg{width:46px;height:46px}
+.ben-chat .ben-tx span{font-size:15.5px}
+.ben-chat .ben-ic svg{width:56px;height:56px}
 .ben-chat .ben-rail{grid-template-columns:auto auto auto;justify-content:space-between}
 .ben4 .ben-rail{grid-template-columns:auto auto auto auto}
 .ben-chat .ben-flags{font-size:16px;letter-spacing:.30em;margin-top:4px}
@@ -2998,7 +3003,7 @@ html{scroll-behavior:smooth}
         <div class="wa-chip"><b>Day 1</b><span class="mid">&middot;</span><i>Sept 29</i></div>
         <div class="wa-ic wa-wheel" aria-hidden="true"></div>
         <h3>Color Mode<br>in Premiere</h3>
-        <p>Foundations, matching, secondaries,<br>and creative grading.</p>
+        <p>Foundations, matching,<br>secondaries, and creative grading.</p>
         <span class="wa-go">See Day 1 sessions <b>&rarr;</b></span>
       </a>
       <a class="wa-card" href="#day2">
@@ -3230,7 +3235,7 @@ html{scroll-behavior:smooth}
           <p>Follow along live with translated captions in 35+ languages, right in Zoom.</p>
         </div>
         <div class="gcell">
-          <div class="gring"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19"/><path d="M20.5 16.5 32 24l-11.5 7.5z"/></svg></div>
+          <div class="gring"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M13 12A17.2 17.2 0 1 1 8 27.2" fill="none"/><path d="M13.8 5.2l-1 7 7 1" fill="none"/><path d="M21 17.8l9.8 6.2-9.8 6.2z" fill="none"/></svg></div>
           <h3>180-Day<br class="tab-br">Recording Access</h3>
           <p>Replay every session on your own schedule after the live event ends.</p>
         </div>
