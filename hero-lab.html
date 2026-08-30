@@ -726,13 +726,16 @@ a:has(>.numbers-logo){display:block;width:fit-content;margin:0 auto}
 .gring{width:82px;height:82px;border-radius:50%;background:rgba(157,107,255,.10);border:2px solid rgba(157,107,255,.26);margin-bottom:15px;display:flex;align-items:center;justify-content:center}
 .gcell svg{flex:0 0 auto;width:44px;height:44px;fill:none;stroke:#c9b2ff!important;
   stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.gcell svg.gsame{stroke:none!important;stroke-width:0;width:46px;height:46px}
+.gcell svg.gsame g{stroke-width:1.2}
+.gcell svg.gsame .gcc-t{stroke:none!important}
 .gcell svg .icon-cc{fill:#c9b2ff;stroke:none!important;font-family:"Source Sans 3",sans-serif;font-size:13px;font-weight:750;letter-spacing:.06em}
 .gcell h3{font-size:21px;font-weight:600;line-height:1.28;letter-spacing:-.023em;white-space:normal;
   color:var(--ink);margin-bottom:5px;text-wrap:balance}
 .gcell p{width:100%;color:#bcc0cd;font-size:17px;line-height:1.4;max-width:330px;text-wrap:pretty}
 
 /* access band — cities + languages */
-.access{width:100vw;margin:86px 0 0 calc(50% - 50vw)}
+.access{width:100vw;margin:42px 0 0 calc(50% - 50vw)}
 .arow{max-width:1560px;margin:0 auto;display:flex;align-items:center;justify-content:center;padding:3px var(--hero-x)}
 .arow+.arow{border-top:1px solid var(--hair2)}
 .abadge{flex:0 0 auto;position:relative;width:48px;height:48px;border-radius:50%;
@@ -747,7 +750,8 @@ a:has(>.numbers-logo){display:block;width:fit-content;margin:0 auto}
   color:var(--albl,#7de3fa);line-height:1.45}
 .alist{display:flex;flex-wrap:wrap;align-items:center;flex:0 1 auto;
   padding-left:24px;border-left:1px solid var(--hair2)}
-.alist span{display:flex;align-items:center;font-size:15.5px;color:#dfe3ec;white-space:nowrap;line-height:1.9}
+.alist span{display:flex;align-items:center;font-size:15px;color:#dfe3ec;white-space:nowrap;line-height:1.9}
+.alist span i{font-style:normal;margin-right:6px}
 .alist span:not(:last-child)::after{content:"";width:4px;height:4px;border-radius:50%;margin:0 12px;flex:0 0 auto;
   background:var(--dim)}
 
@@ -2033,9 +2037,9 @@ if(p.get('intl')==='8'){document.addEventListener('DOMContentLoaded',function(){
   rail.insertBefore(band,i5); band.appendChild(i5);
   rail.insertBefore(eb,band);
   var IC_G='<svg viewBox="0 0 24 24"><g fill="none" stroke="#4FC3F7" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8.8"/><path d="M3.2 12h17.6"/><path d="M4.6 7.3c2 1.1 4.6 1.7 7.4 1.7s5.4-.6 7.4-1.7M4.6 16.7c2-1.1 4.6-1.7 7.4-1.7s5.4.6 7.4 1.7"/><path d="M12 3.2c3.3 2.7 3.3 14.9 0 17.6M12 3.2c-3.3 2.7-3.3 14.9 0 17.6"/></g></svg>';
-  var IC_CC='<svg viewBox="0 0 24 24"><defs><linearGradient id="gcc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4FA8F5"/><stop offset="1" stop-color="#7D6CF8"/></linearGradient></defs><g fill="none" stroke="url(#gcc)" stroke-width="1.3" stroke-linejoin="round"><path d="M6.2 4.4h11.6a2.9 2.9 0 0 1 2.9 2.9v6.4a2.9 2.9 0 0 1-2.9 2.9H11.2l-3.6 3v-3H6.2a2.9 2.9 0 0 1-2.9-2.9V7.3a2.9 2.9 0 0 1 2.9-2.9z"/></g><text x="12" y="13.4" text-anchor="middle" font-size="7.2" font-weight="800" fill="#5E8CF6" font-family="inherit">CC</text></svg>';
-  var IC_SP='<svg viewBox="0 0 24 24"><g fill="none" stroke="#A06CF5" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.6v4.8h3.1l4.5 3.8V5.8L7.1 9.6z"/><path d="M14.6 9.4a4.1 4.1 0 0 1 0 5.2"/><path d="M17 7a7.6 7.6 0 0 1 0 10"/></g></svg>';
-  var IC_RP='<svg viewBox="0 0 24 24"><g fill="none" stroke="#D65BD0" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6A8.6 8.6 0 1 1 4 13.6"/><path d="M6.9 2.6L6.4 6.1l3.5.5"/><path d="M10.5 8.9l4.9 3.1-4.9 3.1z"/></g></svg>';
+  var IC_CC='<svg viewBox="0 0 24 24"><defs><linearGradient id="gcc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4FA8F5"/><stop offset="1" stop-color="#7D6CF8"/></linearGradient></defs><g fill="none" stroke="url(#gcc)" stroke-width="1.2" stroke-linejoin="round"><path d="M6.2 4.4h11.6a2.9 2.9 0 0 1 2.9 2.9v6.4a2.9 2.9 0 0 1-2.9 2.9H11.2l-3.6 3v-3H6.2a2.9 2.9 0 0 1-2.9-2.9V7.3a2.9 2.9 0 0 1 2.9-2.9z"/></g><text x="12" y="13.4" text-anchor="middle" font-size="7.2" font-weight="800" fill="#5E8CF6" font-family="inherit">CC</text></svg>';
+  var IC_SP='<svg viewBox="0 0 24 24"><g fill="none" stroke="#A06CF5" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.6v4.8h3.1l4.5 3.8V5.8L7.1 9.6z"/><path d="M14.6 9.4a4.1 4.1 0 0 1 0 5.2"/><path d="M17 7a7.6 7.6 0 0 1 0 10"/></g></svg>';
+  var IC_RP='<svg viewBox="0 0 24 24"><g fill="none" stroke="#D65BD0" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6A8.6 8.6 0 1 1 4 13.6"/><path d="M6.9 2.6L6.4 6.1l3.5.5"/><path d="M10.5 8.9l4.9 3.1-4.9 3.1z"/></g></svg>';
   document.documentElement.classList.add('ben-chat');
   var FL='\uD83C\uDDFA\uD83C\uDDF8 \uD83C\uDDEA\uD83C\uDDF8 \uD83C\uDDEB\uD83C\uDDF7 \uD83C\uDDE9\uD83C\uDDEA \uD83C\uDDEF\uD83C\uDDF5 \uD83C\uDDF5\uD83C\uDDF9 \uD83C\uDDEE\uD83C\uDDF9';
   var joinTile=four?'<div class="ben-item"><span class="ben-ic">'+IC_G+'</span><div class="ben-tx">'+
@@ -3240,17 +3244,17 @@ html{scroll-behavior:smooth}
     </div>
     <div id="global" class="glob">
         <div class="gcell">
-          <div class="gring"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="4" y="7" width="40" height="29" rx="3.5"/><path d="M24 36v5M17 41h14"/><text class="icon-cc" x="24" y="26.5" text-anchor="middle">CC</text></svg></div>
+          <div class="gring"><svg class="gsame" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="gcc2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4FA8F5"/><stop offset="1" stop-color="#7D6CF8"/></linearGradient></defs><g fill="none" stroke="url(#gcc2)" stroke-width="1.2" stroke-linejoin="round"><path d="M6.2 4.4h11.6a2.9 2.9 0 0 1 2.9 2.9v6.4a2.9 2.9 0 0 1-2.9 2.9H11.2l-3.6 3v-3H6.2a2.9 2.9 0 0 1-2.9-2.9V7.3a2.9 2.9 0 0 1 2.9-2.9z"/></g><text x="12" y="13.4" text-anchor="middle" font-size="7.2" font-weight="800" fill="#5E8CF6" font-family="inherit" stroke="none" class="gcc-t">CC</text></svg></div>
           <h3>Live on Zoom with <br class="tab-br">Real-Time Captions</h3>
           <p>Follow along live with translated captions in 35+ languages, right in Zoom. <a class="zlink" href="https://support.zoom.com/hc/en/article?id=zm_kb&amp;sysparm_article=KB0060844" target="_blank" rel="noopener noreferrer">See the full list</a></p>
         </div>
         <div class="gcell">
-          <div class="gring"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M13 12A17.2 17.2 0 1 1 8 27.2" fill="none"/><path d="M13.8 5.2l-1 7 7 1" fill="none"/><path d="M21 17.8l9.8 6.2-9.8 6.2z" fill="none"/></svg></div>
+          <div class="gring"><svg class="gsame" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="#D65BD0" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6A8.6 8.6 0 1 1 4 13.6"/><path d="M6.9 2.6L6.4 6.1l3.5.5"/><path d="M10.5 8.9l4.9 3.1-4.9 3.1z"/></g></svg></div>
           <h3>180-Day <br class="tab-br">Recording Access</h3>
           <p>Replay every session on your own schedule after the live event ends.</p>
         </div>
         <div class="gcell">
-          <div class="gring"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="3" y="5" width="33" height="25" rx="3.5"/><path d="M19.5 30v5M13.5 35h12"/><circle cx="35" cy="33" r="10.5"/><path d="M24.5 33h21M35 22.5c3 2.8 4.6 6.3 4.6 10.5S38 40.7 35 43.5M35 22.5c-3 2.8-4.6 6.3-4.6 10.5S32 40.7 35 43.5"/></svg></div>
+          <div class="gring"><svg class="gsame" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="#A06CF5" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.6v4.8h3.1l4.5 3.8V5.8L7.1 9.6z"/><path d="M14.6 9.4a4.1 4.1 0 0 1 0 5.2"/><path d="M17 7a7.6 7.6 0 0 1 0 10"/></g></svg></div>
           <h3>Professionally <br class="tab-br">Dubbed Recordings</h3>
           <p>Recordings dubbed in your choice of seven languages, picked at registration.</p>
         </div>
@@ -3262,7 +3266,7 @@ html{scroll-behavior:smooth}
         </span>
         <div class="albl">Recording<br>Languages</div>
         <div class="alist">
-          <span>English</span><span>Spanish</span><span>French</span><span>German</span><span>Japanese</span><span>Portuguese</span><span>Italian</span>
+          <span><i>🇺🇸</i>English</span><span><i>🇪🇸</i>Spanish</span><span><i>🇫🇷</i>French</span><span><i>🇩🇪</i>German</span><span><i>🇯🇵</i>Japanese</span><span><i>🇵🇹</i>Portuguese</span><span><i>🇮🇹</i>Italian</span>
         </div>
       </div>
     </div>
