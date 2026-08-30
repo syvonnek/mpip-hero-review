@@ -2010,7 +2010,7 @@ document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){
     '<div class="ia-steps">'+
     '<div class="ia-step"><i>1</i><h3>At registration</h3><p>Choose English, Spanish, French, German, Japanese, Portuguese, or Italian as your recording language.</p></div>'+
     '<div class="ia-step"><i>2</i><h3>During the live event</h3><p>Turn on translated captions in Zoom and choose from 35+ supported languages. Your caption choice applies only to your own screen.</p></div>'+
-    '<div class="ia-step"><i>3</i><h3>After the event</h3><p>Receive your recordings in the language you selected. Access stays open for 180 days.</p></div>'+
+    '<div class="ia-step"><i>3</i><h3>After the event</h3><p>Your recordings arrive dubbed in the language you selected, and stay available for 180 days.</p></div>'+
     '</div></div>';
   wa.parentNode.insertBefore(sec,wa.nextSibling);
   // 3) pricing bullets per proposal
@@ -2665,7 +2665,8 @@ html{scroll-behavior:smooth}
 /* ===== mobile hero type scale-up (fluid: no new line breaks down to 320px) ===== */
 @media(max-width:600px){
   .nh-copy h1 .h1-main{font-size:clamp(42px,14.2vw,62px);line-height:1.02}
-  .nh-copy h1 .sub{font-size:clamp(19px,6.2vw,27px);line-height:1.2}
+  .nh-copy h1 .sub{font-size:clamp(19px,6.2vw,27px);line-height:1.24;white-space:nowrap;max-width:none}
+  .nh-copy h1 .sub .sbrk{display:block;height:0;overflow:hidden}
   .nh-live .ll-txt{font-size:clamp(14px,4.3vw,18px)}
   .nh-live .nh-gl,.nh-live .nh-ld{width:clamp(17px,5vw,21px);height:clamp(17px,5vw,21px)}
   .nh-date{font-size:clamp(24px,7.3vw,33px);line-height:1.08}
@@ -2701,7 +2702,8 @@ html{scroll-behavior:smooth}
 .ben4 .ben-rail{grid-template-columns:auto auto auto auto}
 .ben-chat .ben-flags{font-size:16px;letter-spacing:.30em;margin-top:4px}
 @media(max-width:1140px){
-  .ben-chat .ben-rail{grid-template-columns:1fr 1fr;justify-content:stretch;row-gap:26px}
+  .ben-chat .ben-rail{grid-template-columns:repeat(3,1fr);justify-content:stretch;row-gap:26px}
+  .ben4 .ben-rail{grid-template-columns:1fr 1fr}
   .ben-chat .ben-item{flex-direction:column;align-items:center;text-align:center;gap:9px;
     padding:0 18px;border-left:0!important}
   .ben-chat .ben-tx{align-items:center}
@@ -2709,6 +2711,7 @@ html{scroll-behavior:smooth}
 }
 @media(max-width:600px){
   .ben-chat .ben-rail{grid-template-columns:1fr;row-gap:28px}
+  .ben-chat .ben-tx b{max-width:none;white-space:normal}
 }
 .ben-chat .ben-item:first-child{padding-left:0}
 
