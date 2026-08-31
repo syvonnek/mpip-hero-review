@@ -649,7 +649,7 @@ a.dchip:hover,a.dchip:focus-visible{border-color:rgba(255,255,255,.32);backgroun
   color:var(--cyan);white-space:nowrap}
 .band .bio{margin-top:13px;color:var(--body);font-size:17.5px;line-height:1.5;max-width:42ch}
 .band.luisa-band .bio{max-width:41ch}
-@media (max-width:700px){
+@media (max-width:1000px){
   .band{height:auto;display:flex;flex-direction:column;padding-bottom:48px}
   .band-media,.band.rev .band-media{position:relative;inset:auto;width:100%;height:280px;order:0}
   .band-media::after,.band.rev .band-media::after{inset:auto 0 0;width:100%;height:48%;
@@ -658,6 +658,13 @@ a.dchip:hover,a.dchip:focus-visible{border-color:rgba(255,255,255,.32);backgroun
   .band h3{font-size:38px}
   .band .role{white-space:normal;line-height:1.45}
   .band .bio,.band.luisa-band .bio{font-size:16px;max-width:none}
+}
+@media (min-width:701px) and (max-width:1000px){
+  .band-media,.band.rev .band-media{height:360px}
+  .band-media img{object-position:center 22%}
+  .band h3{font-size:46px}
+  .band .id,.band.rev .id{padding:34px 40px 0;max-width:760px;margin-inline:auto}
+  .band .bio,.band.luisa-band .bio{font-size:17.5px}
 }
 
 /* ---------- 04 Why: centered intro / 6-item spectrum-ring benefit grid ---------- */
@@ -2247,7 +2254,7 @@ if(p.get('r')==='1'){['pos-top','t5','s1','r1','rail3','bg-cine','ui-frame2'].fo
   .nh-rail .event-rail.event-rail--beside.nh-intl .er .er-ic{flex:0 0 38px;width:38px;height:38px}
 }
 </style><style>/* mobile overflow guard: belt-and-suspenders after the option-lab CSS pile-up */
-html,body{max-width:100%;overflow-x:hidden}
+html,body{max-width:100%;overflow-x:clip}
 /* mobile explainer paragraph removed (redundant with headline+subtitle; 3rd "live") */
 .nh-sub-m{display:none!important}
 /* optional pricing microcopy under the CTAs: ?price=1 */
