@@ -1182,6 +1182,10 @@ footer::before{content:"";position:absolute;top:0;left:50%;transform:translateX(
   .fpartners{padding:24px 24px 0}
   .copyright{margin-right:0;width:100%}
 }
+@media (min-width:561px) and (max-width:1000px){
+  .fpartners{flex-direction:column;align-items:flex-start;gap:18px;flex-wrap:wrap}
+  .fpartners .copyright{width:100%;text-align:left;margin-left:0!important}
+}
 @media (max-width:560px){
   .shell{padding:0 18px}
 
@@ -3498,7 +3502,7 @@ html{scroll-behavior:smooth}
   var fpartners=document.querySelector('.fpartners');
   if(!fcols||!copyright||!fpartners)return;
   function align(){
-    if(window.innerWidth<=560){copyright.style.marginLeft='';return}
+    if(window.innerWidth<=1000){copyright.style.marginLeft='';return}
     copyright.style.marginLeft='0px'; // reset before measuring so repeated calls (resize) don't compound
     var delta=fcols.getBoundingClientRect().left-copyright.getBoundingClientRect().left;
     copyright.style.marginLeft=delta+'px';
