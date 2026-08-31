@@ -2124,7 +2124,7 @@ if(hx){r.classList.add('hierx');r.classList.add('h'+hx+'x');
     function addSubs(){rows.forEach(function(x,i){var m=x.querySelector('.i5-mid');
       if(m&&!m.querySelector('.i5-sub')){var sp=document.createElement('span');sp.className='i5-sub';sp.textContent=subs[i];m.appendChild(sp);}});}
     function langsBlock(){var w=document.createElement('div');w.className='i5-langs';
-      var l=document.createElement('div');l.className='i5-ll';l.textContent='Dubbed recordings \u00b7 on request';
+      var l=document.createElement('div');l.className='i5-ll';l.textContent='Dubbed recordings \u00b7 chosen at registration';
       w.appendChild(l);w.appendChild(ch);return w;}
     if(hx==='1'){document.querySelector('.i5-left').appendChild(ch); right.appendChild(wrap);}
     if(hx==='2'){var g=document.querySelector('.i5-grid'); g.appendChild(ch); g.appendChild(wrap); right.remove();}
@@ -2189,7 +2189,7 @@ if(it==='2'||it==='3'||it==='4'){document.addEventListener('DOMContentLoaded',fu
   if(!lg)setIc('.er--dub2','<svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="e2b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8B5CF6"/><stop offset="1" stop-color="#A78BFA"/></linearGradient></defs><g fill="none" stroke="url(#e2b)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.4 6.6h8.2M7.5 4.8v1.8M11 6.6c-.7 3.6-3 6.4-6.6 8M5.4 10c1.2 2.2 3.1 3.8 5.5 4.6"/><path d="M12.2 20l3.7-8.8 3.7 8.8M13.7 16.9h4.4"/></g></svg>');
   setIc('.er--rep2','<svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="e2c" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E34FCB"/><stop offset="1" stop-color="#F5A8E4"/></linearGradient></defs><g fill="none" stroke="url(#e2c)" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="8.8"/><path d="M12 6.9V12l3.4 2.1"/></g></svg>');
   var l=document.querySelector('.lang-bar .lb-l');
-  if(l)l.innerHTML='<svg viewBox="0 0 24 24" style="width:19px;height:19px;vertical-align:-4px;margin-right:8px" aria-hidden="true"><g fill="none" stroke="#3ED8F0" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="8.8"/><path d="M3.2 12h17.6M12 3.2c2.5 2.8 3.7 5.8 3.7 8.8s-1.2 6-3.7 8.8c-2.5-2.8-3.7-5.8-3.7-8.8s1.2-6 3.7-8.8z"/></g></svg>Dubbing on Request';
+  if(l)l.innerHTML='<svg viewBox="0 0 24 24" style="width:19px;height:19px;vertical-align:-4px;margin-right:8px" aria-hidden="true"><g fill="none" stroke="#3ED8F0" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="8.8"/><path d="M3.2 12h17.6M12 3.2c2.5 2.8 3.7 5.8 3.7 8.8s-1.2 6-3.7 8.8c-2.5-2.8-3.7-5.8-3.7-8.8s1.2-6 3.7-8.8z"/></g></svg>Dubbed Recordings';
 });}
 if(lg||ri==='lang'){document.addEventListener('DOMContentLoaded',function(){
   var d=document.querySelector('.er--dub2'); if(!d)return;
@@ -2992,7 +2992,7 @@ html{scroll-behavior:smooth}
     </div>
     <figure class="nh-ui"><picture><source srcset="outputs/adobe-color-mode-ui-crop-clean.webp" type="image/webp"><img src="outputs/adobe-color-mode-ui-crop-clean.png" alt="Adobe Premiere Color Mode interface" width="800" height="726"></picture><img class="pr-badge" src="assets/premiere-tile.svg" alt="" aria-hidden="true"></figure>
   </div>
-    <div class="nh-rail"><div class="site-shell"><div class="rail-head"><h2>Designed for an International Audience</h2><p>Every session is captioned live, and recordings are dubbed in the language you choose at registration.</p><div class="lang-bar" aria-label="Dubbing languages"><span class="lb-l">Dubbing on request</span><span class="lb-i" aria-hidden="true"></span><span class="lb-list"><i>🇺🇸</i>English<b>&middot;</b><i>🇪🇸</i>Spanish<b>&middot;</b><i>🇫🇷</i>French<b>&middot;</b><i>🇩🇪</i>German<b>&middot;</b><i>🇯🇵</i>Japanese<b>&middot;</b><i>🇵🇹</i>Portuguese<b>&middot;</b><i>🇮🇹</i>Italian</span></div></div><div class="event-rail event-rail--beside nh-intl"><div class="er er--join">
+    <div class="nh-rail"><div class="site-shell"><div class="rail-head"><h2>Designed for an International Audience</h2><p>Every session is captioned live, and recordings are dubbed in the language you choose at registration.</p><div class="lang-bar" aria-label="Dubbing languages"><span class="lb-l">Dubbed recordings</span><span class="lb-i" aria-hidden="true"></span><span class="lb-list"><i>🇺🇸</i>English<b>&middot;</b><i>🇪🇸</i>Spanish<b>&middot;</b><i>🇫🇷</i>French<b>&middot;</b><i>🇩🇪</i>German<b>&middot;</b><i>🇯🇵</i>Japanese<b>&middot;</b><i>🇵🇹</i>Portuguese<b>&middot;</b><i>🇮🇹</i>Italian</span></div></div><div class="event-rail event-rail--beside nh-intl"><div class="er er--join">
           <span class="er-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="lgA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2AD0F2"/><stop offset="1" stop-color="#4F7CFF"/></linearGradient></defs><g fill="none" stroke="url(#lgA)" stroke-linecap="round"><rect x="2.8" y="2.8" width="18.4" height="18.4" rx="5" stroke-width="1.3"/><g stroke-width="1.5"><circle cx="12" cy="12" r="5.4"/><path d="M6.6 12h10.8M12 6.6c1.8 1.7 2.7 3.5 2.7 5.4s-.9 3.7-2.7 5.4c-1.8-1.7-2.7-3.5-2.7-5.4s.9-3.7 2.7-5.4z"/></g></g></svg></span>
           <div class="ft"><div class="k">Join Live from Anywhere</div><div class="v">Two interactive training days</div></div>
         </div>
@@ -3004,7 +3004,7 @@ html{scroll-behavior:smooth}
         <span class="vd" aria-hidden="true"></span>
         <div class="er er--dub2">
           <span class="er-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="lgC" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F04ED4"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs><g fill="none" stroke="url(#lgC)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="2.8" width="18.4" height="18.4" rx="5"/><path d="M7 8.2h4.6M9.3 7v1.2M11.2 8.2c-.4 2.1-1.8 3.8-3.9 4.7M7.7 10.2c.7 1.3 1.9 2.3 3.3 2.8" stroke-width="1.5"/><path d="M12.9 17.4l2.2-5.2 2.2 5.2M13.8 15.6h2.6" stroke-width="1.5"/></g></svg></span>
-          <div class="ft"><div class="k">Dubbing in 7 Languages<span class="kq"> &middot; on request</span></div><div class="v">On request with recordings</div></div>
+          <div class="ft"><div class="k">Dubbing in 7 Languages<span class="kq"> &middot; recordings</span></div><div class="v">Chosen at registration</div></div>
         </div>
         <span class="vd" aria-hidden="true"></span>
         <div class="er er--rep2">
@@ -3022,7 +3022,7 @@ html{scroll-behavior:smooth}
           </div>
           <div class="i5-right">
             <div class="i5-row"><span class="i5-ic"><svg viewBox="0 0 24 24"><g fill="none" stroke="#3ED8F0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.4" width="18" height="13.2" rx="3.4"/><path d="M10.7 9.9a2.4 2.4 0 1 0 0 4.2M16.8 9.9a2.4 2.4 0 1 0 0 4.2"/></g></svg></span><div class="i5-mid"><i>Live</i><b>Real-time captions</b></div><em>Every Zoom session</em></div>
-            <div class="i5-row"><span class="i5-ic i5-v"><svg viewBox="0 0 24 24"><g fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h7M7.5 5.4V7M10.5 7c-.5 2.8-2.4 5-5.1 6.2M5.7 9.9c.9 1.7 2.4 3 4.3 3.6"/><path d="M12.4 19l3-7 3 7M13.6 16.5h3.6"/></g></svg></span><div class="i5-mid"><i>Recordings</i><b>7 dubbed languages</b></div><em>Available on request</em></div>
+            <div class="i5-row"><span class="i5-ic i5-v"><svg viewBox="0 0 24 24"><g fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h7M7.5 5.4V7M10.5 7c-.5 2.8-2.4 5-5.1 6.2M5.7 9.9c.9 1.7 2.4 3 4.3 3.6"/><path d="M12.4 19l3-7 3 7M13.6 16.5h3.6"/></g></svg></span><div class="i5-mid"><i>Recordings</i><b>7 dubbed languages</b></div><em>Chosen at registration</em></div>
             <div class="i5-row"><span class="i5-ic i5-m"><svg viewBox="0 0 24 24"><g fill="none" stroke="#F04ED4" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="8.6"/><path d="M10.2 8.7l5.4 3.3-5.4 3.3z" fill="#F04ED4" stroke="none"/></g></svg></span><div class="i5-mid"><i>Replay</i><b>180-day access</b></div><em>Watch on your schedule</em></div>
           </div>
         </div>
