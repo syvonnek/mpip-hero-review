@@ -699,8 +699,8 @@ a.dchip:hover,a.dchip:focus-visible{border-color:rgba(255,255,255,.32);backgroun
 .why-ic{position:relative;flex:0 0 auto;width:82px;height:82px;border-radius:50%;
   background:rgba(var(--cyan-rgb),.09);border:2px solid rgba(var(--cyan-rgb),.22);
   display:flex;align-items:center;justify-content:center}
-.why-ic svg{width:44px;height:44px;stroke:var(--cyan);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.why-ic-adobe svg{width:30px;height:27px;stroke:none;fill:var(--cyan)}
+.why-ic svg{width:44px;height:44px;stroke:url(#whyGrad);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.why-ic-adobe svg{width:30px;height:27px;stroke:none;fill:url(#whyGrad)}
 .why-item h4{font-size:21px;font-weight:600;letter-spacing:-.023em;margin-bottom:2px}
 .why-item p{width:100%;color:var(--body);font-size:17px;line-height:1.4;max-width:none;margin-left:auto;margin-right:auto;text-wrap:pretty}
 .why-intro-full{margin-top:22px;color:var(--body);font-size:17px;line-height:1.62;max-width:64ch}
@@ -1019,7 +1019,7 @@ footer::before{content:"";position:absolute;top:0;left:50%;transform:translateX(
 /* justify-content was space-between — with only 2 items that pushes .fcols flush to the far
    right edge, past wherever .copyright sits below it in .fpartners. flex-start + a fixed gap
    makes both rows use the same box math so the two columns actually line up. */
-.fgrid2{max-width:1240px;margin:0 auto;padding:0 40px;display:flex;justify-content:space-between;gap:48px}
+.fgrid2{max-width:1240px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 340px;column-gap:48px}
 .fbrand{max-width:340px;flex:0 1 340px}
 .fcols{display:flex;gap:102px;position:relative;left:-9px}
 .fbrand img{height:51px;display:block}
@@ -1034,14 +1034,13 @@ footer::before{content:"";position:absolute;top:0;left:50%;transform:translateX(
 .fcol a{display:block;color:var(--body);text-decoration:none;font-size:14.5px;padding:10px 0;line-height:.8;transition:color .2s}
 .fcol a:hover{color:var(--ink)}
 .fpartners{max-width:1240px;margin:48px auto 0;padding:26px 40px 0;border-top:1px solid var(--hair2);
-  display:flex;align-items:center;justify-content:flex-start;gap:48px;flex-wrap:nowrap}
-/* copyright's exact x-position is set by JS (aligns it live with .fcols, which itself moves with
-   viewport width under space-between) — CSS-only proxy-width matching kept breaking at different
-   viewport widths, so this is measured directly instead of approximated */
+  display:grid;grid-template-columns:1fr 340px;column-gap:48px;align-items:center}
+/* copyright sits in the same 340px grid column as .fcols above it — identical grid
+   template on both rows guarantees pixel-exact alignment with zero JS/measurement. */
 .fpartners .marks{display:flex;align-items:center;gap:14px}
 .fpartners .marks img{height:38px;display:block}
 .fpartners .marks img.pr{height:33px;border-radius:5px;margin-right:4px}
-.copyright{color:var(--body);font-size:12.5px;text-align:left}
+.copyright{color:var(--body);font-size:12.5px;text-align:left;max-width:300px;position:relative;left:-9px}
 /* the old -50px nudge here was tuned for the previous space-between footer layout — now that
    .fpartners uses flex-start with the same first-column basis+gap as .fgrid2 above it, copyright
    already lines up with .fcols on its own; the offset became stale and actively fought that */
@@ -1191,7 +1190,7 @@ footer::before{content:"";position:absolute;top:0;left:50%;transform:translateX(
 
   /* footer */
   footer{padding:52px 0 32px}
-  .fgrid2{padding:0 24px;flex-direction:column;align-items:center;gap:36px}
+  .fgrid2{display:flex;padding:0 24px;flex-direction:column;align-items:center;gap:36px}
   .fcols{width:100%;max-width:340px}
   .fbrand{flex:0 0 auto;height:auto}
   /* link columns read before the brand block on mobile — order only, DOM stays put */
@@ -1201,7 +1200,7 @@ footer::before{content:"";position:absolute;top:0;left:50%;transform:translateX(
   .copyright{margin-right:0;width:100%}
 }
 @media (min-width:561px) and (max-width:1000px){
-  .fpartners{flex-direction:column;align-items:flex-start;gap:18px;flex-wrap:wrap}
+  .fpartners{display:flex;flex-direction:column;align-items:flex-start;gap:18px;flex-wrap:wrap}
   .fpartners .copyright{width:100%;text-align:left;margin-left:0!important}
 }
 @media (max-width:560px){
@@ -3316,7 +3315,7 @@ html{scroll-behavior:smooth}
     <div class="global-accent" aria-hidden="true"></div>
     <div class="why-grid">
         <div class="why-item">
-          <div class="why-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10.3 9l5 3-5 3z"/></svg></div>
+          <div class="why-ic"><svg viewBox="0 0 24 24"><defs><linearGradient id="whyGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22D3EE"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs><circle cx="12" cy="12" r="9"/><path d="M10.3 9l5 3-5 3z"/></svg></div>
           <div><h4>Learn Live</h4><p>Real instruction in real time, no pre-recorded modules.</p></div>
         </div>
         <div class="why-item">
@@ -3514,28 +3513,6 @@ html{scroll-behavior:smooth}
 </div>
 
 <script>
-// ---- footer: keep copyright's x-position locked to .fcols (moves with viewport under
-// space-between) — CSS-only approximations broke at different widths, this is exact ----
-(function(){
-  var fcols=document.querySelector('.fcols');
-  var copyright=document.querySelector('.copyright');
-  var fpartners=document.querySelector('.fpartners');
-  if(!fcols||!copyright||!fpartners)return;
-  function align(){
-    if(window.innerWidth<=1000){copyright.style.marginLeft='';return}
-    copyright.style.marginLeft='0px'; // reset before measuring so repeated calls (resize) don't compound
-    var delta=fcols.getBoundingClientRect().left-copyright.getBoundingClientRect().left;
-    copyright.style.marginLeft=delta+'px';
-  }
-  align();
-  // re-measure once the real webfont has actually loaded — running only once, immediately,
-  // measured against a fallback-font box and was off once Source Sans 3 swapped in and reflowed
-  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(align)}
-  window.addEventListener('load',align);
-  setTimeout(align,400);
-  window.addEventListener('resize',align);
-})();
-
 // ---- mobile hamburger nav ----
 (function(){
   var btn=document.getElementById('mnavToggle');
